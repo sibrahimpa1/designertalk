@@ -1,0 +1,47 @@
+
+.about-page {
+    min-height: 40vh;
+    margin: auto;
+    float: none;
+    margin-top: 20px;
+    position: relative;
+}
+
+.about-us-photo{
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.about-us-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-title{
+  color: #e57764;
+  font-size: 57px;
+  font-weight: 700;
+  margin-right: 40px;
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+}
+.about-page h3{
+  text-align: center;
+  color: #606060;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.about-page p{
+  width: 70%;
+margin: auto;
+font-size: 21px;
+text-align: center;
+font-weight: 100;
+color: #606060;
+line-height: 25px;
+}

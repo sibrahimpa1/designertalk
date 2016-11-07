@@ -1,0 +1,114 @@
+
+.forum-post-page {
+    min-height: 80vh;
+    margin: auto;
+    float: none;
+    margin-top: 20px;
+    position: relative;
+}
+
+textarea{
+  outline: 0 !important;
+}
+
+.like-btn {
+    right: 20px !important;
+    top: 15px !important;
+        width: 130px !important;
+}
+
+.full{
+      width: 130px !important;
+      right: 75px !important;
+      top: 15px !important;
+}
+
+.like-btn span{
+  font-weight: 100;
+      font-size: 12px;
+      color: rgba(96, 96, 96, 0.69);
+}
+
+.go-back{
+  text-decoration: none;
+  color: #e98264;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.comments{
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px solid white;
+  position: relative;
+}
+.comments h4{
+  color: #606060;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+
+.one-comment{
+  padding: 20px;
+  min-height: 100px;
+  background-color: #fcf2f0;
+  box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
+}
+
+.one-comment h3{
+  color: #e98264;
+      margin: 0px;
+      font-weight: 400;
+      font-size: 16px;
+}
+.one-comment p{
+  color: #606060;
+      font-weight: 100;
+      margin: 10px;
+}
+
+.input-comment{
+  margin-top: 20px;
+  min-height: 100px;
+    background-color: #fcf2f0;
+    box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
+    padding: 20px;
+
+}
+
+.input-comment form textarea{
+      width: 95%;
+      height: 60px;
+      margin: 10px auto;
+      background: rgba(246, 212, 205, 0.52);
+      border: 1px solid rgba(96, 96, 96, 0.2);
+      border-radius: 5px;
+      padding: 10px;
+}
+
+.input-comment form{
+  color: rgba(96, 96, 96, 0.75);
+font-size: 15px;
+font-weight: 300;
+}
+
+.post-comment{
+  margin-bottom: 10px;
+  margin: auto;
+  margin-top: 5px;
+  background-color: rgb(96, 96, 96) !important;
+  border: none;
+  border-radius: 0px;
+  width: auto;
+  font-size: 12px;
+  display: block;
+  float: right;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+      margin-right: 10px;
+}

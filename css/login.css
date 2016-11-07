@@ -1,0 +1,77 @@
+
+.login-photo{
+  width: 100%;
+  height: 90vh;
+  position: relative;
+      overflow: hidden;
+}
+
+.login-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-title{
+  color: #e57764;
+  font-size: 57px;
+  font-weight: 700;
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.log-form{
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  top: 250px;
+  color: #e57764;
+  font-weight: 100;
+  padding: 0px;
+}
+
+.log-form form{
+  padding: 25px;
+  width: 35%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.57);
+  border-radius: 5px;
+  min-height: 200px;
+}
+
+.log-form form input{
+  width: 100%;
+  height: 30px;
+  background-color: rgba(249, 228, 223, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 5px;
+  color: white;
+  font-weight: 100;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  padding: 15px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.log-in{
+  width: 50% !important;
+  display: block !important;
+  margin: auto !important;
+  margin-top: 20px !important;
+  padding: 0px !important;
+}
+
+input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.44);
+    font-weight: 100;
+    font-size: 13px;
+    font-style: italic;
+    padding-left: 10px;
+}
