@@ -2,12 +2,13 @@
 <html>
 
 <head>
-      <meta name="viewport" content="width=device-width">
+    <script src="js/formValidation.js"></script>
+
+    <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
 
     <link rel='stylesheet' type='text/css' href='css/main.css' />
-    <link rel='stylesheet' type='text/css' href='css/forum.css' />
     <link rel='stylesheet' type='text/css' href='css/forum-post.css' />
 
         <link rel='stylesheet' type='text/css' href='css/media.css' />
@@ -97,10 +98,12 @@
             </div>
 
             <div class="input-comment clearfix">
-              <form action="action_page.php">
+              <form id='add-comment' action="#bottom">
                   Enter your comment here:<br>
-                  <textarea type="text" placeholder="Start typing.." rows="5"></textarea>
-                  <input class='post-comment' type="submit" value="Send">
+                  <textarea id='comment' type="text" placeholder="Start typing.." rows="5"></textarea>
+                  <input onclick='commentValidation()' class='post-comment' type="submit" value="Send">
+
+                    <p id='validation'></p>
               </form>
             </div>
 

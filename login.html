@@ -2,6 +2,9 @@
 <html>
 
 <head>
+
+  <script src="js/formValidation.js"></script>
+
       <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
@@ -53,16 +56,17 @@
 
 
       <div class="log-form login-page grid-3">
-                <form>
+                <form id='login' action='#'>
 
                         Username<br>
-                        <input type="text" placeholder="Username">
+                        <input id='user' type="text" name='username' placeholder="Username">
                         <br>Password<br>
-                        <input type="password" name="password" placeholder="Password">
+                        <input id='pass' type="password" name="password" placeholder="Password">
                         <br>
 
 
-                        <input class="log-in" type="submit" value="Log in">
+                        <input onclick='loginValidate()' class="log-in" type="submit" value="Log in">
+                          <p id='validation'></p>
                     </form>
 
             </div>

@@ -2,7 +2,9 @@
 <html>
 
 <head>
-      <meta name="viewport" content="width=device-width">
+    <script src="js/formValidation.js"></script>
+
+    <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
 
@@ -60,19 +62,20 @@
 
 
       <div class="log-form grid-3">
-                <form>
+                <form id='register' action='#'>
 
                         Choose your username<br>
-                        <input type="text" placeholder="Username">
+                        <input id='user' type="text" placeholder="Username">
                         <br>Enter your password<br>
-                        <input type="password" name="password" placeholder="Password">
+                        <input id='pass' type="password" name="password" placeholder="Password">
                         <br>
 
                         <br>Enter your email address<br>
-                        <input type="email" name="password" placeholder="Email">
+                        <input id='email' type="email" name="password" placeholder="Email">
                         <br>
 
-                        <input class="log-in" type="submit" value="Register">
+                        <input class="log-in" type="submit" onclick="registerValidate()" value="Register">
+                          <p id='validation'></p>
                     </form>
 
             </div>

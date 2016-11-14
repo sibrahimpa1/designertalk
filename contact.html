@@ -2,6 +2,9 @@
 <html>
 
 <head>
+
+    <script src="js/formValidation.js"></script>
+
     <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
@@ -63,22 +66,23 @@
         <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h3>
 
         <div class="contact-form grid-3">
-            <form>
-                <form action="action_page.php">
+                <form id='contact' action="#">
                     First name:<br>
-                    <input type="text" placeholder="Name">
+                    <input id='name' type="text" placeholder="Name">
                     <br> Last name:<br>
-                    <input type="text" name="lastname" placeholder="Lastname">
+                    <input id='lastname' type="text" name="lastname" placeholder="Lastname">
                     <br>
                     Your email address:<br>
-                      <input type="email"  placeholder="Email">
+                      <input id='email' type="email"  placeholder="Email">
                       <br>
                       Your email:<br>
-                    <textarea cols='10' rows="5" placeholder="Enter your email here.."></textarea>
+                    <textarea id='content' cols='10' rows="5" placeholder="Enter your email here.."></textarea>
 
-                    <input class='send' type="submit" value="Send">
+                    <input onclick='contactValidation()' class='send' type="submit" value="Send">
+
+                      <p id='validation'></p>
+
                 </form>
-            </form>
         </div>
 
 

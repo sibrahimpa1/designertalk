@@ -2,6 +2,9 @@
 <html>
 
 <head>
+
+      <script src="js/formValidation.js"></script>
+
     <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
@@ -104,20 +107,23 @@
             <h3 class="content-title">Add new post</h3>
 
             <div class="post-form">
-                <form class="clearfix">
+                <form class="clearfix" id='new-post' action="#bottom">
 
                     Post title:<br>
-                    <input type="text" placeholder="Title">
+                    <input id='title' type="text" placeholder="Title">
                     <br> Choose category:<br>
-                    <select>
+                    <select id='category'>
+                      <option value="choose">- Select -</option>
                         <option value="volvo">UI</option>
                         <option value="saab">Icons</option>
                         <option value="opel">App design</option>
                         <option value="audi">UI/UX</option>
                       </select><br> Post content:<br>
-                    <textarea cols="10" rows="5" placeholder="Enter post content here.."></textarea>
+                    <textarea id='content' cols="10" rows="5" placeholder="Enter post content here.."></textarea>
 
-                    <input class="post" type="submit" value="Send">
+                    <input onclick='postValidation()' class="post" type="submit" value="Post">
+                      <p id='validation'></p>
+
                 </form>
 
             </div>

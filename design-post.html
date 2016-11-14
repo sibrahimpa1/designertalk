@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script src="js/formValidation.js"></script>
             <meta name="viewport" content="width=device-width">
     <title>DesignersTalk</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
@@ -93,10 +94,11 @@
             </div>
 
             <div class="input-comment clearfix">
-              <form action="action_page.php">
+              <form id='add-comment' action="#bottom">
                   Enter your comment here:<br>
-                  <textarea type="text" placeholder="Start typing.."></textarea>
-                  <input class='post-comment' type="submit" value=" Send">
+                  <textarea id='comment' type="text" placeholder="Start typing.."></textarea>
+                  <input onclick='commentValidation()' class='post-comment' type="submit" value="Post">
+                  <p id='validation'></p>
               </form>
             </div>
 
