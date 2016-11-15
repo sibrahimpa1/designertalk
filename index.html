@@ -3,201 +3,84 @@
 
 <head>
 
-    <script src="js/formValidation.js"></script>
+  <script src="js/formValidation.js"></script>
+  <script src="js/main.js"></script>
 
-    <meta name="viewport" content="width=device-width">
-    <title>DesignersTalk</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
+  <meta name="viewport" content="width=device-width">
+  <title>DesignersTalk</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
 
-    <link rel='stylesheet' type='text/css' href='css/main.css' />
-    <link rel='stylesheet' type='text/css' href='css/media.css' />
+  <link rel='stylesheet' type='text/css' href='css/main.css' />
+  <link rel='stylesheet' type='text/css' href='css/profile.css' />
+  <link rel='stylesheet' type='text/css' href='css/about.css' />
+  <link rel='stylesheet' type='text/css' href='css/contact.css' />
+  <link rel='stylesheet' type='text/css' href='css/login.css' />
+
+  <link rel='stylesheet' type='text/css' href='css/forum-post.css' />
+  <link rel='stylesheet' type='text/css' href='css/design-post.css' />
+        <link rel='stylesheet' type='text/css' href='css/register.css' />
+
+
+
+  <link rel='stylesheet' type='text/css' href='css/media.css' />
 
 
 </head>
 
-
-<!-- grid neka bude na 5 dijelova podjeljen
-      grid-1 = 18% ..
--->
-
 <body>
 
-    <header>
+  <header>
 
-        <nav id="primary_nav_wrap">
-            <ul>
-                <li><a href="#">See all pages</a>
-                    <ul>
-                        <a href="profile.html">Profile</a>
-                        <a href="design-list.html">Designs</a>
-                        <a href="forum.html">Forum</a>
-                        <a href="about.html">About Us</a>
-                        <a href="contact.html">Contact</a>
-                        <a href='login.html'>Log in</a>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <nav id="primary_nav_wrap">
+        <a href="#">See all pages</a>
+          <ul>
+            <li><a onclick='loadProfile()'>Profile</a></li>
+            <li><a onclick='loadDesigns()'>Designs</a></li>
+            <li><a onclick='loadForum()'>Forum</a></li>
+            <li><a onclick='loadAbout()'>About Us</a></li>
 
-        <div class="hamburger grid-1">
-            <a href="#" class="">
-            </a>
-        </div>
+            <li><a onclick='loadContact()'>Contact</a></li>
+            <li><a onclick='loadLogin()' class="log-btn-mobile">Log in</a></li>
 
-        <div class="logo grid-1">
-            <a href="index.html">
-                <img class="logo" src='images/logo.png' />
-            </a>
-        </div>
+          </ul>
 
-        <div class="header-links grid-4">
-            <a href="profile.html">Profile</a>
-            <a href="design-list.html">Designs</a>
-            <a href="forum.html">Forum</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
-            <a href='login.html' class="log-btn">Log in</a>
-        </div>
+    </nav>
 
+    <div class="logo grid-1">
+      <a onclick='loadMain()'>
+        <img class="logo" src='images/logo.png' alt='logo' />
+      </a>
+    </div>
 
-
-    </header>
-
-
-
-    <div class="join-us-box overlay">
-        <img src="images/background.jpg" />
-
-        <div class="join-form-wrap">
-            <div class="join-content">
-
-                <h3 class="grid-2">Join us right now!</h3>
-
-                <div class="join-form grid-3">
-                    <form id='register' action='#'>
-                        Choose username:<br>
-                        <input id='user' type="text" placeholder="Username" name='username'>
-                        <br>Enter password:<br>
-                        <input id='pass' type="text" name="lastname" placeholder="Password" name='password'>
-                        <br> Your email:<br>
-                        <input id='email' type="text" placeholder="Email">
-                        <input class='submit' type="submit" onclick="registerValidate()" value="Sign up">
-                        <p id='validation'></p>
-                    </form>
-                </div>
-
-            </div>
-        </div>
+    <div class="header-links grid-4">
+      <a onclick='loadProfile()'>Profile</a>
+      <a onclick='loadDesigns()'>Designs</a>
+      <a onclick='loadForum()'>Forum</a>
+      <a onclick='loadAbout()'>About Us</a>
+      <a onclick='loadContact()'>Contact</a>
+      <a onclick='loadLogin()' class="log-btn">Log in</a>
 
     </div>
 
 
-    <div class='main-page grid-5'>
-        <h1 class="main-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque adipisci molestias.</h1>
+
+  </header>
+
+  <div id='join' class="join-us-bar clearfix">
+    <h4>Join us in few seconds!</h4>
+    <a onclick='loadRegister()'>Register</a>
+  </div>
 
 
-        <div class="content-box clearfix">
-            <h3 class="content-title">Recent forum posts</h3>
+  <div id='main-page' class="main-page-content">
 
-            <div class="boxes-wrap">
+    <!-- ajax calls on this container -->
+    
+  </div>
 
-                <div class="forum-post-box">
-                    <p class="forum-category">
-                        <span>Category:</span> Main example
-
-                        <div class="recommend-info">
-                            <img src='images/heart.svg' />
-                            <span>20 suggestions</span>
-                        </div>
-
-                    </p>
-                    <h4>Forum post title</h4>
-                    <p class="forum-post-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, numquam temporibus ipsa saepe minus! Et corrupti cumque inventore repellendus dolore quod impedit nemo, nobis alias odio recusandae, sunt tenetur consectetur.
-                    </p>
-
-                    <p class="forum-post-info">
-                        <span class='comment-icon'>
-                    <img src='images/comment.svg' />
-                  <a href="#">2012 comments</a>
-                  </span>
-                    </p>
-                    <a class="see-more open-post" href="forum-post.html">See full post</a>
-                </div>
-
-            </div>
-
-            <a class="see-more" href="forum.html">See more forum posts</a>
-        </div>
-
-        <div class="content-box clearfix">
-            <h3 class="content-title">Latest designs</h3>
-
-            <div class="boxes-wrap">
-
-                <div class="design-post-box">
-                    <div class="design-img-thumb">
-                        <img src="images/design.png" />
-                    </div>
-
-                    <div class="design-info">
-                        <h4 href="#">Vector icons</h4>
-                        <p class="design-category">
-                            <span>Category:</span>Icons/typography
-                        </p>
-                        <p class="design-autor">
-                            by <a href='#'>Jane Doe</a>
-                        </p>
-                        <a class="see-more" href="design-post.html">See full post</a>
-                    </div>
-                </div>
-
-                <div class="design-post-box">
-                    <div class="design-img-thumb">
-                        <img src="images/design.png" />
-                    </div>
-
-                    <div class="design-info">
-                        <h4 href="#">Dating website</h4>
-                        <p class="design-category">
-                            <span>Category:</span>UI
-                        </p>
-                        <p class="design-autor">
-                            by <a href='#'>Doe Jane</a>
-                        </p>
-                        <a class="see-more" href="design-post.html">See full post</a>
-                    </div>
-                </div>
-
-                <div class="design-post-box">
-                    <div class="design-img-thumb">
-                        <img src="images/design.png" />
-                    </div>
-
-                    <div class="design-info">
-                        <h4 href="#">Music app</h4>
-                        <p class="design-category">
-                            <span>Category:</span>App designs
-                        </p>
-                        <p class="design-autor">
-                            by <a href='#'>Jane Doe</a>
-                        </p>
-                        <a class="see-more" href="design-post.html">See full post</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <a class="see-more" href="design-list.html">See more designs</a>
-
-        </div>
-
-
-    </div>
-
-    <footer>
-        <h3>All rights reserved.</h3>
-    </footer>
+  <footer>
+    <h3>All rights reserved.</h3>
+  </footer>
 
 </body>
 

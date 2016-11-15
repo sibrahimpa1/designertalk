@@ -69,7 +69,7 @@
     display: flex;
     background-color: rgba(255, 255, 255, 0.32);
     flex: 2;
-    justify-content: center;
+    justify-content: flex-start;
     margin: auto;
     margin: 0px;
     margin-left: 20px;
@@ -82,17 +82,21 @@
     object-fit: cover;
     box-shadow: 7px 7px 11px -7px rgba(229, 121, 100, 0.56);
 }
+.design-box-wrap{
+      justify-content: flex-start !important;
+}
 
 .design-post-box {
-    width: 25%;
-    min-height: 180px;
-    background-color: rgba(255, 255, 255, 0.7) !important;
-    padding: 20px;
-    position: relative;
-    box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
-    margin-bottom: 20px;
-    display: inline-block;
-    margin-right: 20px;
+  width: 25%;
+  min-height: 180px;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  padding: 20px;
+  position: relative;
+  box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
+  margin-bottom: 20px;
+  display: inline-block;
+  margin: 20px;
+  float: left;
 }
 
 .profile-img {
