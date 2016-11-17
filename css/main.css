@@ -5,6 +5,20 @@ body {
   background-color: rgba(226, 190, 190, 0.6);
 }
 
+.dropdown {
+  position: absolute;
+  right: 0px;
+  top: 34px;
+  z-index: 1000;
+  width: 200px;
+  height: auto;
+  display: none;
+}
+
+.show-menu {
+  display: block;
+}
+
 #validation {
   text-align: center;
   color: #e57764;
@@ -524,7 +538,7 @@ input::-webkit-input-placeholder {
 .design-img-thumb {
   width: 100%;
   position: relative;
-      min-height: 200px;
+  min-height: 200px;
 }
 
 .design-img-thumb img {
@@ -670,7 +684,6 @@ input::-webkit-input-placeholder {
   position: absolute;
   width: 150px;
   right: 0px;
-  display: none;
 }
 
 .log-btn-mobile {
@@ -725,7 +738,6 @@ input::-webkit-input-placeholder {
   display: block;
 }
 
-
 .modal .modal-view {
   position: relative;
   background: #fff;
@@ -762,6 +774,6 @@ input::-webkit-input-placeholder {
   cursor: pointer;
 }
 
-.modal-img-wrap{
+.modal-img-wrap {
   height: 500px;
 }

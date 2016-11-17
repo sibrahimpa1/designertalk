@@ -32,8 +32,11 @@
   <header>
 
     <nav id="primary_nav_wrap">
-        <a href="#">See all pages</a>
-          <ul>
+        <a class='open-dropdown' onclick="dropdownToggle()">See all pages</a>
+
+      <div id='dropdown' class="dropdown">
+
+        <ul>
             <li><a onclick='loadProfile()'>Profile</a></li>
             <li><a onclick='loadDesigns()'>Designs</a></li>
             <li><a onclick='loadForum()'>Forum</a></li>
@@ -43,6 +46,9 @@
             <li><a onclick='loadLogin()' class="log-btn-mobile">Log in</a></li>
 
           </ul>
+
+
+      </div>
 
     </nav>
 

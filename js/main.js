@@ -21,6 +21,18 @@ window.onkeydown = function(e) {
   }
 }
 
+function dropdownToggle(){
+  document.getElementById("dropdown").classList.toggle('show-menu');
+}
+
+window.onclick = function(){
+  if(!event.target.matches('.open-dropdown') && !event.target.matches('.dropdown ul li a')){
+    if(document.getElementById("dropdown").classList.contains('show-menu')){
+      document.getElementById("dropdown").classList.remove('show-menu');
+    }
+  }
+}
+
 function loadPart(content, where) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
