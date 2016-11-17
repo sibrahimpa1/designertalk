@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body id='body'>
 
   <header>
 
@@ -75,12 +75,26 @@
   <div id='main-page' class="main-page-content">
 
     <!-- ajax calls on this container -->
-    
+
   </div>
 
   <footer>
     <h3>All rights reserved.</h3>
   </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-view">
+      <div class="modal-close" onclick="toggleModal('hide');">X</div>
+
+      <div class="design-post-box">
+          <div class="design-img-thumb modal-img-wrap">
+              <img id='modal-img' src="">
+          </div>
+      </div>
+
+    </div>
+  </div>
+
 
 </body>
 

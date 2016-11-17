@@ -83,6 +83,7 @@
     box-shadow: 7px 7px 11px -7px rgba(229, 121, 100, 0.56);
 }
 .design-box-wrap{
+      min-height: 400px;
       justify-content: flex-start !important;
 }
 

@@ -524,6 +524,7 @@ input::-webkit-input-placeholder {
 .design-img-thumb {
   width: 100%;
   position: relative;
+      min-height: 200px;
 }
 
 .design-img-thumb img {
@@ -708,4 +709,59 @@ input::-webkit-input-placeholder {
   display: block;
   z-index: 100;
   color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+
+.modal.modal-visible {
+  display: block;
+}
+
+
+.modal .modal-view {
+  position: relative;
+  background: #fff;
+  width: 600px;
+  margin: 70px auto;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  display: block;
+  box-sizing: border-box;
+  height: 550px;
+}
+
+.modal .modal-view .design-post-box {
+  width: 100%;
+  box-shadow: none;
+  background: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.modal .modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.modal-img-wrap{
+  height: 500px;
 }

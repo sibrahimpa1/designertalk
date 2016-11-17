@@ -2,9 +2,26 @@ window.onload = function() {
   loadMain();
 };
 
+function toggleModal(type) {
+  var tmp = document.getElementById("design-img").getAttribute("src");
+  document.getElementById("modal-img").src = tmp;
+  document.getElementById('modal').className = 'modal' + (type === 'show' ? ' modal-visible' : '');
+
+  if(type==='show'){
+    document.getElementById("body").style.overflow = "hidden";
+  }
+  else{
+      document.getElementById("body").style.overflow = "auto";
+  }
+}
+
+window.onkeydown = function(e) {
+  if(e.keyCode === 27) {
+    toggleModal('hide');
+  }
+}
+
 function loadPart(content, where) {
-
-
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
