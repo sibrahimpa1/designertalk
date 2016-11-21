@@ -5,6 +5,9 @@ body {
   background-color: rgba(226, 190, 190, 0.6);
 }
 
+#main-page{
+  min-height: 600px;
+}
 .dropdown {
   position: absolute;
   right: 0px;

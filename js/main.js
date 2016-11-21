@@ -7,51 +7,61 @@ function toggleModal(type) {
   document.getElementById("modal-img").src = tmp;
   document.getElementById('modal').className = 'modal' + (type === 'show' ? ' modal-visible' : '');
 
-  if(type==='show'){
+  if (type === 'show') {
     document.getElementById("body").style.overflow = "hidden";
-  }
-  else{
-      document.getElementById("body").style.overflow = "auto";
+  } else {
+    document.getElementById("body").style.overflow = "auto";
   }
 }
 
 window.onkeydown = function(e) {
-  if(e.keyCode === 27) {
+  if (e.keyCode === 27) {
     toggleModal('hide');
   }
 }
 
-function dropdownToggle(){
+function dropdownToggle() {
   document.getElementById("dropdown").classList.toggle('show-menu');
 }
 
-window.onclick = function(){
-  if(!event.target.matches('.open-dropdown') && !event.target.matches('.dropdown ul li a')){
-    if(document.getElementById("dropdown").classList.contains('show-menu')){
+window.onclick = function() {
+  if (!event.target.matches('.open-dropdown') && !event.target.matches('.dropdown ul li a')) {
+    if (document.getElementById("dropdown").classList.contains('show-menu')) {
       document.getElementById("dropdown").classList.remove('show-menu');
     }
   }
 }
 
-function loadPart(content, where) {
+function loadPart(content, where, cb) {
   var xhttp = new XMLHttpRequest();
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+    console.log(document.getElementById(where).innerHTML);
       document.getElementById(where).innerHTML +=
         this.responseText;
+
+      if(typeof cb === "function"){
+        cb();
+      }
     }
   };
+
   xhttp.open("GET", content, true);
   xhttp.send();
 }
 
+
 function loadMain() {
   document.getElementById("main-page").innerHTML = "";
 
-  loadPart("ajax/join-us-box.html", "main-page");
-  loadPart("ajax/main-page.html", "main-page");
-  loadPart("ajax/design-box.html", "design-wrap");
-  loadPart("ajax/forum-box.html", "forum-wrap");
+  loadPart("ajax/join-us-box.html", "main-page",
+    loadPart("ajax/main-page.html", "main-page",
+      loadPart("ajax/design-box.html", "design-wrap",
+        loadPart("ajax/forum-box.html", "forum-wrap")
+      )
+    )
+  );
 }
 
 function loadProfile() {
