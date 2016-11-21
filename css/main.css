@@ -5,9 +5,35 @@ body {
   background-color: rgba(226, 190, 190, 0.6);
 }
 
-#main-page{
+#main-page {
   min-height: 600px;
 }
+
+.hover-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  display: none;
+}
+
+.hover-overlay h1 {
+  color: rgba(255, 255, 255, 0.81);
+  font-size: 15px;
+  font-weight: 500;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.small-design:hover .hover-overlay {
+  display: block;
+}
+
 .dropdown {
   position: absolute;
   right: 0px;
@@ -317,12 +343,13 @@ input::-webkit-input-placeholder {
 
 .see-more {
   float: right;
-  color: #606060;
+  color: #000000;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 500;
   margin-right: 20px;
   font-style: italic;
+  margin-top: 10px;
 }
 
 .see-more:hover {
@@ -350,9 +377,9 @@ input::-webkit-input-placeholder {
 }
 
 .content-title {
-  color: white;
+  color: #606060;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   width: 95%;
   margin: 20px auto;
@@ -541,7 +568,10 @@ input::-webkit-input-placeholder {
 .design-img-thumb {
   width: 100%;
   position: relative;
-  min-height: 200px;
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 7px 7px 11px -7px rgba(229, 121, 100, 0.56);
+  border: 1px solid rgba(214, 198, 198, 0.31);
 }
 
 .design-img-thumb img {
@@ -735,6 +765,7 @@ input::-webkit-input-placeholder {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   display: none;
+  z-index: 1000;
 }
 
 .modal.modal-visible {
@@ -744,15 +775,17 @@ input::-webkit-input-placeholder {
 .modal .modal-view {
   position: relative;
   background: #fff;
-  width: 600px;
-  margin: 70px auto;
+  width: 65%;
+  margin: auto;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   display: block;
   box-sizing: border-box;
-  height: 550px;
+  height: 90vh;
+  margin-top: 5vh;
 }
 
 .modal .modal-view .design-post-box {
+  height: 100%;
   width: 100%;
   box-shadow: none;
   background: none;
@@ -778,5 +811,5 @@ input::-webkit-input-placeholder {
 }
 
 .modal-img-wrap {
-  height: 500px;
+  height: 100%;
 }

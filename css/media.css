@@ -1,40 +1,47 @@
-@media screen and ( max-width: 1025px){
-  .profile-wrap{
+@media screen and ( max-width: 1025px) {
+  .profile-wrap {
     display: block;
   }
-
-  .top-info{
+  .top-info {
     width: 70%;
     margin: auto;
     margin-bottom: 10px;
   }
-
-  .profile-box{
+  .profile-box {
     flex-basis: 25%;
   }
-  .profile-wrap .content{
+  .profile-wrap .content {
     margin-left: 0px;
     width: 70% !important;
     margin: auto;
   }
-  .user-info{
+  .user-info {
     flex: 1;
   }
 }
 
-@media screen and ( max-width: 780px){
-
-    header nav{
-      display: block;
-    }
-  .top-info{
+@media screen and ( max-width: 780px) {
+  .modal .modal-view {
+    margin-top: 5vh;
+    width: 80%;
+    height: 90vh;
+  }
+  .modal .modal-view .design-post-box, .modal .modal-view .design-post-box .modal-img-wrap {
+    height: 100%;
+  }
+  .design-img-thumb {
+    height: 400px;
+  }
+  header nav {
+    display: block;
+  }
+  .top-info {
     width: 100%;
   }
-  .profile-wrap .content{
+  .profile-wrap .content {
     width: 100% !important;
   }
-
-  .header-links{
+  .header-links {
     display: none;
   }
   .join-content {
@@ -42,58 +49,52 @@
   }
   .boxes-wrap {
     display: block;
-
   }
-  .design-post-box{
+  .design-post-box {
     width: auto;
     margin: auto;
     margin-top: 20px;
   }
-
   .contact-form {
     width: 65%;
   }
-
-  .log-form form{
-      width: 55%;
+  .log-form form {
+    width: 55%;
   }
-
-  .login-title{
+  .login-title {
     margin-right: 0px;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
   }
-
-  .login-photo{
+  .login-photo {
     overflow: hidden;
   }
-  .log-form{
-    top:390px;
+  .log-form {
+    top: 390px;
   }
   .register-text {
     top: 190px;
   }
-  .login-page{
+  .login-page {
     top: 240px;
   }
 }
 
-@media screen and ( max-width: 545px){
+@media screen and ( max-width: 545px) {
   .join-us-bar h4 {
-      width: 100%;
-      text-align: center;
-      margin: auto;
-      margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
   }
-
-  .join-us-bar{
-        text-align: center;
+  .join-us-bar {
+    text-align: center;
   }
-  .join-us-bar a{
+  .join-us-bar a {
     float: none;
     margin: auto;
     display: initial;
   }
-  .join-btns{
+  .join-btns {
     display: block;
     text-align: center;
   }
@@ -106,63 +107,65 @@
   .top-info {
     display: block;
   }
-  .profile-img{
+  .profile-img {
     margin: auto;
   }
   .profile-img {
     width: 150px;
     height: 150px;
   }
-  .top-info ul{
+  .top-info ul {
     max-width: 90%;
   }
 }
 
-@media screen and ( max-width: 480px){
-
-  .design-post-box{
-    width: auto;
-margin: auto;
-margin-top: 10px;
-margin-bottom: 15px;
+@media screen and ( max-width: 480px) {
+  .modal .modal-view {
+    width: 100%;
   }
-  .register-text p{
+  .modal .modal-close {
+    right: 0px;
+  }
+  .design-post-box {
+    width: auto;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .register-text p {
     width: 90%;
     font-size: 16px;
   }
   .profile-box {
     flex-basis: 22%;
-        font-size: 22px;
+    font-size: 22px;
   }
-
-    .forum-post-box .like-btn{
-      left: 18px !important;
-      bottom: 8px !important;
-      width: 125px !important;
-      top: auto !important;
-    }
-    .comments{
-          padding: 5px;
-    }
-    .one-comment p {
+  .forum-post-box .like-btn {
+    left: 18px !important;
+    bottom: 8px !important;
+    width: 125px !important;
+    top: auto !important;
+  }
+  .comments {
+    padding: 5px;
+  }
+  .one-comment p {
     margin: 0px;
     margin-top: 5px;
   }
-  .input-comment form textarea{
+  .input-comment form textarea {
     padding: 0px;
     width: 100%;
   }
-  .post-comment{
+  .post-comment {
     margin: 0px;
   }
-
-  .design-img-thumb{
-      height: 200px;
+  .design-img-thumb {
+    height: 200px;
   }
   .contact-form {
-      width: auto;
+    width: auto;
   }
-
   .join-content {
     padding-top: 0px;
     width: 90%;
@@ -175,42 +178,38 @@ margin-bottom: 15px;
     float: none;
     font-size: 25px;
   }
-  .join-form{
+  .join-form {
     width: 80%;
     margin: auto;
   }
-  .recommend-info{
+  .recommend-info {
     position: absolute;
     bottom: 10px;
     left: 20px;
   }
-  .forum-post-box{
+  .forum-post-box {
     width: auto;
   }
   .recommend-info span {
     font-size: 13px;
   }
-
-  .main-page{
+  .main-page {
     width: 95%;
     padding: 0px;
-        padding-bottom: 30px;
+    padding-bottom: 30px;
   }
   .design-img-thumb {
     height: 300px;
   }
-
-  .open-post{
+  .open-post {
     position: absolute;
     right: 0px;
     bottom: 15px;
   }
-
-  .about-us-photo{
+  .about-us-photo {
     height: 300px;
   }
-
-  .about-page h3{
+  .about-page h3 {
     margin: 0px;
     margin-bottom: 20px;
   }
@@ -219,11 +218,10 @@ margin-bottom: 15px;
     margin: auto;
     font-size: 18px;
   }
-  .about-page{
+  .about-page {
     margin-bottom: 40px;
   }
-
-  .cover-us-photo{
-        height: 300px;
+  .cover-us-photo {
+    height: 300px;
   }
 }
