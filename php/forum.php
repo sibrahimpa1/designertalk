@@ -29,11 +29,12 @@ if (isset($_POST['postCategory'])){
   <h1 class="main-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque adipisci molestias.</h1>
 
   <div class="sort-bar">
-
+    <a class="sort-link" href="php/csvForum.php">Download csv file
+    </a>
     <a class="sort-link">Sort by
-        </a>
+    </a>
 
-    <ul class="sort-option">
+    <!-- ul class="sort-option">
       <li>
         Suggestions
       </li>
@@ -41,6 +42,8 @@ if (isset($_POST['postCategory'])){
         Date
       </li>
     </ul>
+    -->
+
   </div>
 
   <div id='content-box' class="content-box clearfix">

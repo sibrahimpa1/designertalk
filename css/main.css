@@ -657,6 +657,7 @@ input::-webkit-input-placeholder {
 }
 
 .sort-link {
+  margin-right: 10px;
   height: 100%;
   background-color: transparent;
   border: none;

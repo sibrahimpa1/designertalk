@@ -38,6 +38,7 @@
       <div id='dropdown' class="dropdown">
 
         <ul>
+
           <li><a onclick='loadProfile()'>Profile</a></li>
           <li><a onclick='loadDesigns()'>Designs</a></li>
           <li><a onclick='loadForum()'>Forum</a></li>
@@ -72,6 +73,7 @@
     </div>
 
     <div class="header-links grid-4">
+      <a href="php/csvUsers.php">Users csv</a>
       <a onclick='loadProfile()'>Profile</a>
       <a onclick='loadDesigns()'>Designs</a>
       <a onclick='loadForum()'>Forum</a>

@@ -25,6 +25,9 @@ if (isset($_POST['designTitle'])){
 
       <div class="sort-bar">
 
+        <a class="sort-link" href="php/csvDesign.php">Download csv file
+        </a>
+
           <a class="sort-link">Sort by
           </a>
 
