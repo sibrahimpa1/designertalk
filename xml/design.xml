@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <designs>
-
   <design>
 		<image>../images/design.png</image>
 		<alt>Design image</alt>
@@ -8,7 +7,6 @@
 		<category>Mobile</category>
 		<author>Joe Doe heheheh</author>
 	</design>
-
   <design>
     <image>../images/design.png</image>
     <alt>Design image</alt>
@@ -16,5 +14,4 @@
     <category>UI</category>
     <author>Jane Doe</author>
   </design>
-
 </designs>

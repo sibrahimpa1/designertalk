@@ -74,6 +74,7 @@
 
     <div class="header-links grid-4">
       <a href="php/csvUsers.php">Users csv</a>
+      <a href="php/pdf.php">pdf</a>
       <a onclick='loadProfile()'>Profile</a>
       <a onclick='loadDesigns()'>Designs</a>
       <a onclick='loadForum()'>Forum</a>
@@ -81,9 +82,7 @@
       <a onclick='loadContact()'>Contact</a>
 
       <?php
-
         session_start();
-
         if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
          echo '<a onclick="loadLogin()">Log in</a>';
         }
@@ -91,7 +90,6 @@
            echo '<a href="php/logOut.php">Log out</a>';
         }
       ?>
-
     </div>
 
 
