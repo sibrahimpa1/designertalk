@@ -7,7 +7,7 @@ Forum za web dizajnere, graficke i logo dizajnere, ilustratore i ostale kreativc
 Spirala 1.
   - Svi zadaci su urađeni, nisam primjetila nijedan bug.
   - Lista fajlova:
-   - index.html - početna stranica sa nekim osnovnim sadržajem
+   - index.php - početna stranica sa nekim osnovnim sadržajem
    - about.html - stranica na kojoj treba pisati nešto više o nama
    - contact.html - stranica sa kontakt formom
    - design-list.html - lista svih dizajnova, sa opcijama sortiranja
@@ -40,7 +40,7 @@ Spirala 2.
    - design-post.html - kontejner za veliki design box -> ovdje se ucitava 'big-design-box' i 'comment-box'
 
    - forum-post.html - kontejner za prikaz jednog forum boxa -> ovdje se ucitava 'forum-box' i 'comment-box'
-   - forum-box.html - prikaz forum-boxa : na main page-u, u listi svi postova na forumu (podstranica 'Forum') i u podstranici jednog forum posta
+   - forum-box.php - prikaz forum-boxa : na main page-u, u listi svi postova na forumu (podstranica 'Forum') i u podstranici jednog forum posta
    - forum.html - kontejner za listu svih postova na forumu
 
    - join-us-box.html - ucitava se na main stranici na samom pocetku stranice
@@ -54,7 +54,7 @@ Spirala 2.
    - formValidation.js - validacija svih formi na stranici
    - main.js - ucitavanje svih podstranica ajaxom, dropdown meni, modal
 
-   - index.html - pocetna stranica
+   - index.php - pocetna stranica
 
 
 

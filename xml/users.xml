@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+
+  <user>
+
+		<image>images/user.jpg</image>
+		<alt>User image</alt>
+		<name>Jane</name>
+		<lastname>Doe</lastname>
+		<job>Designer</job>
+
+    <email></email>
+    <username>admin123</username>
+    <password>admin123</password>
+
+	</user>
+
+</users>

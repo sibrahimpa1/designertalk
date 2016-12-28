@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<posts>
+
+    <forumpost>
+        <category>Something</category>
+        <title>Forum post 3</title>
+        <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+        <comments>10</comments>
+        <suggestions>1230</suggestions>
+        <author>James Doe</author>
+    </forumpost>
+
+    <forumpost>
+        <category>UI</category>
+        <title>Forum post 2</title>
+        <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+        <comments>10</comments>
+        <suggestions>323</suggestions>
+        <author>James Doe</author>
+    </forumpost>
+
+    <forumpost>
+        <category>And something else</category>
+        <title>Ve ctor icons</title>
+        <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+        <comments>110</comments>
+        <suggestions>110</suggestions>
+        <author>Jane Doe</author>
+    </forumpost>
+
+
+<forumpost><category/><title>choose</title><description/></forumpost><forumpost><category/><title>choose</title><description/></forumpost><forumpost><category/><title>choose</title><description/></forumpost><forumpost><category/><title>choose</title><description/></forumpost><forumpost><category/><title>choose</title><description/></forumpost></posts>

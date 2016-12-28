@@ -14,7 +14,7 @@
   <link rel='stylesheet' type='text/css' href='css/profile.css' />
   <link rel='stylesheet' type='text/css' href='css/about.css' />
   <link rel='stylesheet' type='text/css' href='css/contact.css' />
-  <link rel='stylesheet' type='text/css' href='css/login.css' />
+  <link rel='stylesheet' type='text/css' href='../css/login.css' />
 
   <link rel='stylesheet' type='text/css' href='css/forum-post.css' />
   <link rel='stylesheet' type='text/css' href='css/design-post.css' />
@@ -44,7 +44,19 @@
           <li><a onclick='loadAbout()'>About Us</a></li>
 
           <li><a onclick='loadContact()'>Contact</a></li>
-          <li><a onclick='loadLogin()' class="log-btn-mobile">Log in</a></li>
+
+
+  			<?php
+
+          session_start();
+
+          if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+           echo '<li><a onclick="loadLogin()" class="log-btn-mobile">Log in</a></li>';
+				  }
+          else{
+             echo '<a href="php/logOut.php" class="log-btn-mobile">Log out</a>';
+          }
+        ?>
 
         </ul>
 
@@ -65,7 +77,18 @@
       <a onclick='loadForum()'>Forum</a>
       <a onclick='loadAbout()'>About Us</a>
       <a onclick='loadContact()'>Contact</a>
-      <a onclick='loadLogin()' class="log-btn">Log in</a>
+
+      <?php
+
+        session_start();
+
+        if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+         echo '<a onclick="loadLogin()">Log in</a>';
+        }
+        else{
+           echo '<a href="php/logOut.php">Log out</a>';
+        }
+      ?>
 
     </div>
 

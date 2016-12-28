@@ -150,7 +150,7 @@ header a:hover {
 
 .boxes-wrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 

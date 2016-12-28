@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<designs>
+
+  <design>
+		<image>../images/design.png</image>
+		<alt>Design image</alt>
+		<name>Some great design</name>
+		<category>Mobile</category>
+		<author>Joe Doe heheheh</author>
+	</design>
+
+  <design>
+    <image>../images/design.png</image>
+    <alt>Design image</alt>
+    <name>Vector icons</name>
+    <category>UI</category>
+    <author>Jane Doe</author>
+  </design>
+
+</designs>

@@ -65,8 +65,8 @@ function loadMain() {
 
   loadPart("ajax/join-us-box.html", "main-page", function() {
     loadPart("ajax/main-page.html", "main-page", function() {
-      loadPart("ajax/design-box.html", "design-wrap", function() {
-        loadPart("ajax/forum-box.html", "forum-wrap")
+      loadPart("php/design-box.php", "design-wrap", function() {
+        loadPart("php/forum-box.php", "forum-wrap")
       })
     })
   });
@@ -77,8 +77,8 @@ function loadProfile() {
 
   loadPart("ajax/profile.html", "main-page", function() {
     loadPart("ajax/top-profile-info.html", "profile-wrap", function() {
-      loadPart("ajax/design-box.html", "design-content", function() {
-        loadPart("ajax/forum-box.html", "forum-content")
+      loadPart("php/design-box.php", "design-content", function() {
+        loadPart("php/forum-box.php", "forum-content")
       })
     })
   });
@@ -87,7 +87,7 @@ function loadProfile() {
 function loadDesigns() {
   document.getElementById("main-page").innerHTML = "";
   loadPart("ajax/design-list.html", "main-page", function() {
-    loadPart("ajax/design-box.html", "content-box")
+    loadPart("php/design-box.php", "content-box")
   });
 }
 
@@ -102,15 +102,15 @@ function loadDesignPost() {
 
 function loadForum() {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/forum.html", "main-page", function() {
-    loadPart("ajax/forum-box.html", "content-box")
+  loadPart("php/forum.php", "main-page", function() {
+    loadPart("php/forum-box.php", "content-box")
   });
 }
 
 function loadForumPost() {
   document.getElementById("main-page").innerHTML = "";
   loadPart("ajax/forum-post.html", "main-page", function() {
-    loadPart('ajax/forum-box.html', "content-box", function() {
+    loadPart('php/forum-box.php', "content-box", function() {
       loadPart('ajax/comment-box.html', "post-page")
     })
   });
@@ -129,7 +129,7 @@ function loadContact() {
 
 function loadLogin() {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/login.html", "main-page");
+  loadPart("php/login.php", "main-page");
 }
 
 function loadRegister() {

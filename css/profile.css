@@ -85,6 +85,7 @@
 .design-box-wrap{
       min-height: 400px;
       justify-content: flex-start !important;
+          flex-direction: row;
 }
 
 .design-post-box {
