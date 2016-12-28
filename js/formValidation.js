@@ -176,8 +176,6 @@ function postValidation(){
     document.getElementById("validation").innerHTML = setError;
     return false;
   }
-      form.reset();
-      document.getElementById('category').selectedIndex=0;
       document.getElementById("validation").innerHTML = "Post added!";
 }
 

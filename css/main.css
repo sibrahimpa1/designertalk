@@ -447,8 +447,15 @@ input::-webkit-input-placeholder {
 
 .post {
   width: auto !important;
-  padding: 0px 40px !important;
+  padding: 5px 40px !important;
   float: right !important;
+  border: 1px solid #c0bcbc;
+  background-color: #f6f1f1;
+  color: gray;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 
 .post-form form select {

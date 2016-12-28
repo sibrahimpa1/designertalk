@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submit'])){
+if (isset($_POST['postCategory'])){
     $post = file_get_contents('php://input');
     echo($post);
 
@@ -17,6 +17,7 @@ if (isset($_POST['submit'])){
     $posts->addChild('title', $category);
     $posts->addChild('description', $desc);
 
+    $xml->formatOutput = true;
     $xml->asXML("../xml/forum.xml");
 }
 
@@ -59,18 +60,18 @@ if (isset($_POST['submit'])){
         <br> Choose category:<br>
 
       <select id='category' name='postCategory'>
-                  <option value="choose">- Select -</option>
-                    <option value="volvo">UI</option>
-                    <option value="saab">Icons</option>
-                    <option value="opel">App design</option>
-                    <option value="audi">UI/UX</option>
-        </select>
+                   <option>- Select -</option>
+                    <option>UI</option>
+                    <option>Icons</option>
+                    <option>App design</option>
+                    <option>UI/UX</option>
+      </select>
 
         <br> Post content:<br>
 
         <textarea id='content' cols="10" rows="5" placeholder="Enter post content here.." name='postDesc'></textarea>
 
-        <input onclick='postValidation()' class="post" type="submit" value="Post" name="submit">
+        <input onclick='loadForum(true)' class="post" type="button">Post</button>
 
         <p id='validation'></p>
 

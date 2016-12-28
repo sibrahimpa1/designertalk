@@ -62,7 +62,6 @@ function loadPart(content, where, cb) {
 
 function loadMain() {
   document.getElementById("main-page").innerHTML = "";
-
   loadPart("ajax/join-us-box.html", "main-page", function() {
     loadPart("ajax/main-page.html", "main-page", function() {
       loadPart("php/design-box.php", "design-wrap", function() {
@@ -100,7 +99,24 @@ function loadDesignPost() {
   });
 }
 
-function loadForum() {
+function loadForum(write) {
+  if (write) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("Post Submitted");
+        }
+    };
+    postTitle = document.getElementById('title').value;
+    postDesc = document.getElementById('content').value;
+    postCat = document.getElementById('category').value;
+    params = "postTitle=" + postTitle + "&postDesc=" + postDesc + "&postCategory=" + postCat;
+        xhttp.open("POST", 'php/forum.php', true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send(params);
+  }
   document.getElementById("main-page").innerHTML = "";
   loadPart("php/forum.php", "main-page", function() {
     loadPart("php/forum-box.php", "content-box")
