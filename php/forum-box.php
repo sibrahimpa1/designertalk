@@ -25,6 +25,8 @@
                 </span>
           </p>
 
+					<a class='delete-post' href='#' onclick=''>Delete post</a>
+
           <a class='see-more open-post' onclick='loadForumPost()'>See full post</a>
         </div>
 

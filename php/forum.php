@@ -71,7 +71,7 @@ if (isset($_POST['postCategory'])){
 
         <textarea id='content' cols="10" rows="5" placeholder="Enter post content here.." name='postDesc'></textarea>
 
-        <input onclick='loadForum(true)' class="post" type="button">Post</button>
+        <input onclick='loadForum(true)' class="post" type="button" value="POST">
 
         <p id='validation'></p>
 

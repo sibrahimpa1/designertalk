@@ -83,9 +83,26 @@ function loadProfile() {
   });
 }
 
-function loadDesigns() {
+function loadDesigns(write) {
+  if (write) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("Post Submitted");
+        }
+    };
+    designTitle = document.getElementById('title').value;
+    designCategory = document.getElementById('category').value;
+    params = "designTitle=" + designTitle + "&designCategory=" + designCategory;
+    xhttp.open("POST", 'php/design-list.php', true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send(params);
+  }
+
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/design-list.html", "main-page", function() {
+  loadPart("php/design-list.php", "main-page", function() {
     loadPart("php/design-box.php", "content-box")
   });
 }
