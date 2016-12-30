@@ -48,7 +48,7 @@ else{
       if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
        echo '';
       }
-      else{
+      else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
          echo  '<a class="sort-link" href="php/csvForum.php">Download csv file
          </a>';
       }
@@ -70,7 +70,7 @@ else{
       if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
        echo '<h1 class="log-in-warning">Log in like admin to add new forum posts!</h1>';
       }
-      else{
+      else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
         $tmp=htmlspecialchars($_SERVER["PHP_SELF"]);
         echo '<div class="post-form">
       <form class="clearfix" id="new-post" role="form" action="<?php echo $tmp?>" method="POST">
@@ -98,6 +98,9 @@ else{
       </form>
 
     </div>'; }
+    else{
+      echo '<h1 class="log-in-warning">Only admin can add posts</h1>';
+    }
     ?>
 
   </div>

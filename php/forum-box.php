@@ -31,7 +31,7 @@
 						if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 						 echo '';
 						}
-						else{
+						else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
 					?>
 						  <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost->id;?>, true);">Delete post</a>
 					<?php

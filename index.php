@@ -46,18 +46,19 @@
 
           <li><a onclick='loadContact()'>Contact</a></li>
 
-
-  			<?php
-
-          session_start();
-
-          if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-           echo '<li><a onclick="loadLogin()" class="log-btn-mobile">Log in</a></li>';
-				  }
-          else{
-             echo '<a href="php/logOut.php" class="log-btn-mobile">Log out</a>';
-          }
-        ?>
+          <?php
+            session_start();
+            if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+             echo '<a onclick="loadLogin()">Log in</a>';
+            }
+            else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
+               echo  '<a style="margin-left: 20px;" href="php/csvUsers.php">Users csv</a>
+               <a href="php/pdf.php">pdf</a> <a href="php/logOut.php">Log out</a>';
+            }
+            else{
+               echo  '<a href="php/logOut.php">Log out</a>';
+            }
+          ?>
 
         </ul>
 
@@ -84,9 +85,12 @@
         if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
          echo '<a onclick="loadLogin()">Log in</a>';
         }
-        else{
+        else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
            echo  '<a style="margin-left: 20px;" href="php/csvUsers.php">Users csv</a>
            <a href="php/pdf.php">pdf</a> <a href="php/logOut.php">Log out</a>';
+        }
+        else{
+           echo  '<a href="php/logOut.php">Log out</a>';
         }
       ?>
     </div>

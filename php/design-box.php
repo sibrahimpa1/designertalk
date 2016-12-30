@@ -28,7 +28,7 @@ session_start();
 							if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 							 echo '';
 							}
-							else{
+							else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
 						?>
 								<a class="delete-design"  onclick="return deleteDesign( <?php echo (string)$design->id;?>, true);">Delete design</a>
 						<?php

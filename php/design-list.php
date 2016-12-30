@@ -57,7 +57,7 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
           if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
            echo '';
           }
-          else{
+        	else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
              echo  '<a class="sort-link" href="php/csvDesign.php">Download csv file
              </a>';
           }
@@ -81,7 +81,7 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
           if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
            echo '<h1 class="log-in-warning">Log in like admin to add new designs!</h1>';
           }
-          else{
+          else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
             $tmg = htmlspecialchars($_SERVER["PHP_SELF"]);
 
              echo  ' <div class="post-form">
@@ -109,6 +109,9 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
                </div>';
           }
+          else{
+              echo '<h1 class="log-in-warning">Only admin can add designs for now</h1>';
+            }
         ?>
 
 
