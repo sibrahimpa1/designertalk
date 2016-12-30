@@ -67,6 +67,7 @@ Spirala 3.
   - Prilikom logina sa admin podacima, u headeru ce se pojaviti i link za skidanje fajla u csv i pdf formatima ( csv lista korisnika i pdf u kojem se nalazi lista dizajneva - analogno bi se uradilo i za forum postove i korisnike)
   - Uradjen je search za dizajneve i postove, potencijalni rezultati se pojavljuju ispod search inputa, ali nije uradjeno kada se klikne na dugme da se prikazu svi rezultati.
   - uradjen deployment stranice na OpenShiftu-u:
+  http://designertalk-wt-designertalk-wt.44fs.preview.openshiftapps.com/
 
 
 
