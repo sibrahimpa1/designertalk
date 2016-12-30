@@ -62,6 +62,11 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
              </a>';
           }
         ?>
+
+        <textarea class="search-input" type="search" onkeyup="showSearch(this.value)" placeholder="search"></textarea>
+        <div id="search-dropdown" class="search-content">
+
+        </div>
       </div>
 
       <div id='content-box' class="content-box clearfix">

@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <posts>
 
-    
-    
-<forumpost><category>testni </category><title>App design</title><description>hehehe</description><id>1</id><comments>0</comments><suggestions>0</suggestions></forumpost></posts>
+    <forumpost>
+        <category>UI
+        </category>
+        <title>Divan design</title>
+        <description>hehehe</description>
+        <id>1</id>
+        <comments>0</comments>
+        <suggestions>0</suggestions>
+    </forumpost>
+
+    <forumpost>
+        <category>UI
+        </category>
+        <title>design</title>
+        <description>hehehe</description>
+        <id>1</id>
+        <comments>0</comments>
+        <suggestions>0</suggestions>
+    </forumpost>
+
+    <forumpost>
+        <category>UI
+        </category>
+        <title>App tests</title>
+        <description>hehehe</description>
+        <id>1</id>
+        <comments>0</comments>
+        <suggestions>0</suggestions>
+    </forumpost>
+
+</posts>

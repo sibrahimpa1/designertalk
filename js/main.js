@@ -2,12 +2,51 @@ window.onload = function() {
   loadMain(); // starting point
 };
 
+// search bar for designs
+
+function showSearch(input) {
+  if(input.length < 2) {
+    document.getElementById("search-dropdown").innerHTML = "";
+    return;
+  }
+
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          document.getElementById("search-dropdown").innerHTML = xmlhttp.responseText;
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 404)
+          document.getElementById("search-dropdown").innerHTML = "error";
+  }
+
+  xmlhttp.open("GET","../php/search.php?q="+input,true);
+  xmlhttp.send();
+}
+
+
+function showSearchPosts(input) {
+  if(input.length < 2) {
+    document.getElementById("search-dropdown").innerHTML = "";
+    return;
+  }
+
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          document.getElementById("search-dropdown").innerHTML = xmlhttp.responseText;
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 404)
+          document.getElementById("search-dropdown").innerHTML = "error";
+  }
+
+  xmlhttp.open("GET","../php/searchPosts.php?q="+input,true);
+  xmlhttp.send();
+}
+
 
 // otvara modal klikom na sliku (design-box)
 
-function toggleModal(type) {
-  var tmp = document.getElementById("design-img").getAttribute("src");
-  document.getElementById("modal-img").src = tmp;
+function toggleModal(type, src) {
+
+  document.getElementById("modal-img").src = src;
   document.getElementById('modal').className = 'modal' + (type === 'show' ? ' modal-visible' : '');
 
   if (type === 'show') {

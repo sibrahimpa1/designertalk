@@ -85,13 +85,12 @@
 }
 .design-box-wrap{
       min-height: 400px;
-      justify-content: flex-start !important;
           flex-direction: row;
           flex-wrap: wrap;
 }
 
 .design-post-box {
-  width: 25%;
+  width: 23%;
   min-height: 180px;
   background-color: rgba(255, 255, 255, 0.7) !important;
   padding: 20px;

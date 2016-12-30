@@ -18,6 +18,11 @@
   .user-info {
     flex: 1;
   }
+
+  .design-post-box{
+        width: 35%;
+  }
+
 }
 
 @media screen and ( max-width: 780px) {

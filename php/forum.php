@@ -54,6 +54,10 @@ else{
       }
     ?>
 
+    <textarea class="search-input" type="search" onkeyup="showSearchPosts(this.value)" placeholder="Search.."></textarea>
+    <div id="search-dropdown" class="search-content">
+
+    </div>
 
   </div>
 

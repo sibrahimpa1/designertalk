@@ -1,6 +1,27 @@
 <?xml version="1.0"?>
 <designs>
 
-    
+    <design>
+        <name>molim te</name>
+        <category>UI</category>
+        <author>autor</author>
+        <id>2</id>
+        <pic>images/IMG_1318.JPG</pic>
+    </design>
 
-<design><name>molim te</name><category>UI</category><author>autor</author><id>2</id><pic>images/IMG_1318.JPG</pic></design></designs>
+    <design>
+        <name>first website</name>
+        <category>UI</category>
+        <author>autor</author>
+        <id>2</id>
+        <pic>images/IMG_1318.JPG</pic>
+    </design>
+
+    <design>
+        <name>neki novi dizajn</name>
+        <category>Icons</category>
+        <author>autor</author>
+        <id>8</id>
+        <pic>images/IMG_1273.JPG</pic>
+    </design>
+</designs>

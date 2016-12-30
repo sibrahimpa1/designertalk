@@ -3,10 +3,12 @@ session_start();
 	$xml=simplexml_load_file("../xml/design.xml") or die("Error: Cannot create object");
 
 	foreach($xml->children() as $design) {
+
+	$tmp= $design->pic;
 ?>
 
     <div class='design-post-box'>
-        <div class='design-img-thumb small-design' onclick='toggleModal('show')'>
+        <div class='design-img-thumb small-design' onclick="toggleModal('show', '<?php echo $tmp?>')">
             <div class='hover-overlay'>
               <h1>Click to see bigger image!</h1>
             </div>
