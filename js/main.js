@@ -95,12 +95,37 @@ function loadDesigns(write) {
     designTitle = document.getElementById('title').value;
     designCategory = document.getElementById('category').value;
     params = "designTitle=" + designTitle + "&designCategory=" + designCategory;
+
     xhttp.open("POST", 'php/design-list.php', true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhttp.send(params);
   }
 
+  document.getElementById("main-page").innerHTML = "";
+  loadPart("php/design-list.php", "main-page", function() {
+    loadPart("php/design-box.php", "content-box")
+  });
+}
+
+function deleteDesign(id, write) {
+  if (write) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("Post deleted");
+        }
+    };
+
+
+    params = "id=" + id;
+
+    xhttp.open("POST", 'php/deleteDesign.php', true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send(params);
+  }
   document.getElementById("main-page").innerHTML = "";
   loadPart("php/design-list.php", "main-page", function() {
     loadPart("php/design-box.php", "content-box")
@@ -139,6 +164,32 @@ function loadForum(write) {
     loadPart("php/forum-box.php", "content-box")
   });
 }
+
+
+function deleteForum(id, write) {
+  if (write) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("Post deleted");
+        }
+    };
+
+
+    params = "id=" + id;
+
+    xhttp.open("POST", 'php/deletePost.php', true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send(params);
+  }
+  document.getElementById("main-page").innerHTML = "";
+  loadPart("php/forum.php", "main-page", function() {
+    loadPart("php/forum-box.php", "content-box")
+  });
+}
+
 
 function loadForumPost() {
   document.getElementById("main-page").innerHTML = "";

@@ -22,7 +22,7 @@
                 by <a href='#'>$design->author</a>
             </p>
 
-						<a class='delete-design' onclick='#'>Delete design</a>
+						<a class='delete-design'  onclick='deleteDesign($design->id, true)'>Delete design</a>
             <a class='see-more' onclick='loadDesignPost()'>See full post</a>
         </div>
     </div>

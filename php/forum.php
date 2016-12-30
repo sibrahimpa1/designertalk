@@ -1,23 +1,30 @@
 <?php
 if (isset($_POST['postCategory'])){
     $post = file_get_contents('php://input');
-    echo($post);
 
     $xml= new SimpleXMLElement("../xml/forum.xml", null, true);
-    echo($_POST['postTitle']);
+  //  echo($_POST['postTitle']);
 
-  	$title = $_POST['postTitle'];
-		$desc = $_POST['postDesc'];
-    $category = $_POST['postCategory'];
+      $counter=0;
+
+      foreach($xml->children() as $forumpost) {
+        $counter+=1;
+      }
+
+      $counter++;
 
 
-    $posts = $xml->addChild('forumpost');
+      $title = $_POST['postTitle'];
+      $desc = $_POST['postDesc'];
+      $category = $_POST['postCategory'];
 
-    $posts->addChild('category', $title);
-    $posts->addChild('title', $category);
-    $posts->addChild('description', $desc);
 
-    $xml->formatOutput = true;
+      $posts = $xml->addChild('forumpost');
+
+      $posts->addChild('category', $title);
+      $posts->addChild('title', $category);
+      $posts->addChild('description', $desc);
+      $posts->addChild('id', $counter);
     $xml->asXML("../xml/forum.xml");
 }
 

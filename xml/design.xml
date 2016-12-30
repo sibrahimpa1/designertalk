@@ -1,17 +1,6 @@
 <?xml version="1.0"?>
 <designs>
-  <design>
-		<image>../images/design.png</image>
-		<alt>Design image</alt>
-		<name>Some great design</name>
-		<category>Mobile</category>
-		<author>Joe Doe heheheh</author>
-	</design>
-  <design>
-    <image>../images/design.png</image>
-    <alt>Design image</alt>
-    <name>Vector icons</name>
-    <category>UI</category>
-    <author>Jane Doe</author>
-  </design>
-</designs>
+
+  
+
+<design><name>dsadSA</name><category>Icons</category><author>autor</author><id>1</id></design></designs>

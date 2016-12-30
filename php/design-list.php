@@ -2,6 +2,13 @@
 if (isset($_POST['designTitle'])){
 
     $xml= new SimpleXMLElement("../xml/design.xml", null, true);
+    $counter=0;
+
+    foreach($xml->children() as $design) {
+      $counter+=1;
+    }
+
+    $counter++;
 
   	$title = $_POST['designTitle'];
     $category = $_POST['designCategory'];
@@ -11,6 +18,7 @@ if (isset($_POST['designTitle'])){
     $posts->addChild('name', $title);
     $posts->addChild('category', $category);
     $posts->addChild('author', "autor");
+    $posts->addChild('id',$counter);
 
     $xml->asXML("../xml/design.xml");
 }
