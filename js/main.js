@@ -101,7 +101,7 @@ function loadPart(content, where, cb) {
 
 function loadMain() {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/join-us-box.html", "main-page", function() {
+  loadPart("php/join-us-box.php", "main-page", function() {
     loadPart("ajax/main-page.html", "main-page", function() {
       loadPart("php/design-box.php", "design-wrap", function() {
         loadPart("php/forum-box.php", "forum-wrap")
@@ -260,5 +260,5 @@ function loadLogin() {
 
 function loadRegister() {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/register.html", "main-page");
+  loadPart("php/register.php", "main-page");
 }
