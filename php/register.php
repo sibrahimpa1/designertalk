@@ -14,7 +14,7 @@
     $users = $xml->addChild('user');
 
     $users->addChild('id', $counter+1);
-    $users->addChild('name', $getname);
+    $users->addChild('username', $getname);
     $users->addChild('password', $getpass);
     $users->addChild('email', $getmail);
     $users->addChild('image', 'images/user.jpg');

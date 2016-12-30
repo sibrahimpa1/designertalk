@@ -56,6 +56,18 @@ Spirala 2.
 
    - index.php - pocetna stranica
 
+Spirala 3.
+
+  - Napravljena serijalizacija svih podataka (dizajn elementi, forum postovi i korisnici) u XML fajlove.
+  - Samo admin za sada moze dodavati novi forum post i novi dizajn, kao i brisati iste (prilikom logina sa drugim korisnikom nece biti prikazana nigdje opcija za dodavanje/brisanje)
+  - Moguca registracija novog korisnika
+  - Admin podaci su zapisani u XML fajlu
+  - Sve forme su validirane php-om
+  - Samo admin moze vrsiti download podataka u csv formatu za forum postove i dizajneve ( na svakoj od stranica ima link u sub-headeru gdje je i search input )
+  - Prilikom logina sa admin podacima, u headeru ce se pojaviti i link za skidanje fajla u csv i pdf formatima ( csv lista korisnika i pdf u kojem se nalazi lista dizajneva - analogno bi se uradilo i za forum postove i korisnike)
+  - Uradjen je search za dizajneve i postove, potencijalni rezultati se pojavljuju ispod search inputa, ali nije uradjeno kada se klikne na dugme da se prikazu svi rezultati.
+  - uradjen deployment stranice na OpenShiftu-u:
+
 
 
 

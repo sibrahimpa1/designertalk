@@ -14,11 +14,16 @@
     	//å	session_register($p);
 		    $_SESSION['username'] = $_GET['username']; // store username
 		    $_SESSION['password'] = $_GET['password']; // store password
-				header("location: ../index.php");
-				exit();
+
+				unset($_SESSION['error']);
+						 header("refresh: 0");
+						 header("location: ../index.php");
 		}
 		else {
-    		$error = "Invalid Username or Password Please Try Again";
+				unset($_SESSION['error']);
+				header("refresh: 0");
+				header("location: ../index.php");
+				echo "<p>No such user!</p>";
     	}
   }
 }
