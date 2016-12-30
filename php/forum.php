@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (isset($_POST['postCategory'])){
     $post = file_get_contents('php://input');
 
@@ -62,14 +64,20 @@ if (isset($_POST['postCategory'])){
   <div class="content-box clearfix add-forum-post">
     <h3 class="content-title">Add new post</h3>
 
-    <div class="post-form">
-      <form class="clearfix" id='new-post' role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
+    <?php
+      if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+       echo '<h1 class="log-in-warning">Log in like admin to add new forum posts!</h1>';
+      }
+      else{
+        $tmp=htmlspecialchars($_SERVER["PHP_SELF"]);
+        echo '<div class="post-form">
+      <form class="clearfix" id="new-post" role="form" action="<?php echo $tmp?>" method="POST">
 
         Post title:<br>
-        <input id='title' type="text" placeholder="Title" name="postTitle">
+        <input id="title" type="text" placeholder="Title" name="postTitle">
         <br> Choose category:<br>
 
-      <select id='category' name='postCategory'>
+      <select id="category" name="postCategory">
                    <option>- Select -</option>
                     <option>UI</option>
                     <option>Icons</option>
@@ -79,15 +87,16 @@ if (isset($_POST['postCategory'])){
 
         <br> Post content:<br>
 
-        <textarea id='content' cols="10" rows="5" placeholder="Enter post content here.." name='postDesc'></textarea>
+        <textarea id="content" cols="10" rows="5" placeholder="Enter post content here.." name="postDesc"></textarea>
 
-        <input onclick='loadForum(true)' class="post" type="button" value="POST">
+        <input onclick="loadForum(true)" class="post" type="button" value="POST">
 
-        <p id='validation'></p>
+        <p id="validation"></p>
 
       </form>
 
-    </div>
+    </div>'; }
+    ?>
 
   </div>
 

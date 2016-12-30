@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+
+
 if (isset($_POST['designTitle'])){
 
     $xml= new SimpleXMLElement("../xml/design.xml", null, true);
@@ -57,35 +61,45 @@ if (isset($_POST['designTitle'])){
 
       </div>
 
+
+
       <div class="content-box clearfix add-forum-post">
         <h3 class="content-title">Add new design</h3>
 
-        <div class="post-form">
-          <form class="clearfix" id='new-post' role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
+        <?php
+          if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+           echo '<h1 class="log-in-warning">Log in like admin to add new designs!</h1>';
+          }
+          else{
+            $tmg = htmlspecialchars($_SERVER["PHP_SELF"]);
 
-            Design title:<br>
-            <input id='title' type="text" placeholder="Title" name="designTitle">
-            <br> Choose category:<br>
+             echo  ' <div class="post-form">
+                 <form class="clearfix" id="new-post" role="form" action="<?php echo $tmp>" method="POST">Design title:<br>
+                   <input id="title" type="text" placeholder="Title" name="designTitle">
+                   <br> Choose category:<br>
 
-          <select id='category' name='designCategory'>
-                       <option>- Select -</option>
-                        <option>UI</option>
-                        <option>Icons</option>
-                        <option>App design</option>
-                        <option>UI/UX</option>
-          </select>
-
-
-            <!-- missing for photo upload -->
+                 <select id="category" name="designCategory">
+                              <option>- Select -</option>
+                               <option>UI</option>
+                               <option>Icons</option>
+                               <option>App design</option>
+                               <option>UI/UX</option>
+                 </select>
 
 
-            <input onclick='loadDesigns(true)' class="post" type="button" value="POST">
+                   <!-- missing for photo upload -->
 
-            <p id='validation'></p>
 
-          </form>
+                   <input onclick="loadDesigns(true)" class="post" type="button" value="POST">
 
-        </div>
+                   <p id="validation"></p>
+
+                 </form>
+
+               </div>';
+          }
+        ?>
+
 
       </div>
 

@@ -73,8 +73,6 @@
     </div>
 
     <div class="header-links grid-4">
-      <a href="php/csvUsers.php">Users csv</a>
-      <a href="php/pdf.php">pdf</a>
       <a onclick='loadProfile()'>Profile</a>
       <a onclick='loadDesigns()'>Designs</a>
       <a onclick='loadForum()'>Forum</a>
@@ -87,7 +85,8 @@
          echo '<a onclick="loadLogin()">Log in</a>';
         }
         else{
-           echo '<a href="php/logOut.php">Log out</a>';
+           echo  '<a style="margin-left: 20px;" href="php/csvUsers.php">Users csv</a>
+           <a href="php/pdf.php">pdf</a> <a href="php/logOut.php">Log out</a>';
         }
       ?>
     </div>
