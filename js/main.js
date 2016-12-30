@@ -90,11 +90,13 @@ function loadDesigns(write) {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           console.log("Post Submitted");
+
         }
     };
     designTitle = document.getElementById('title').value;
     designCategory = document.getElementById('category').value;
-    params = "designTitle=" + designTitle + "&designCategory=" + designCategory;
+    pic = document.getElementById('image').value;
+    params = "designTitle=" + designTitle + "&designCategory=" + designCategory + "pic" + pic;
 
     xhttp.open("POST", 'php/design-list.php', true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -154,6 +156,7 @@ function loadForum(write) {
     postDesc = document.getElementById('content').value;
     postCat = document.getElementById('category').value;
     params = "postTitle=" + postTitle + "&postDesc=" + postDesc + "&postCategory=" + postCat;
+
         xhttp.open("POST", 'php/forum.php', true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 

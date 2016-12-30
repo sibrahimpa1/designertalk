@@ -11,7 +11,38 @@ body {
     font-weight: 400;
     text-align: center;
 }
+.delete-post{
+    color: #e5786d;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: italic;
+    cursor: pointer;
+}
 
+.delete-design{
+    color: #e5786d;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: italic;
+    cursor: pointer;
+    margin:20px 0px 0px 0px;
+    display: block;
+}
+
+.img-input{
+  padding: 5px 5px !important;
+      height: 30px !important;
+}
+
+#phpValidation{
+  text-align: center;
+  color: #000000;
+  font-weight: 500;
+  padding: 3px;
+  font-size: 14px;
+  margin: 10px auto;
+
+}
 #main-page {
     min-height: 600px;
 }

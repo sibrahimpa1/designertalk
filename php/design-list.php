@@ -3,7 +3,7 @@
 session_start();
 
 
-if (isset($_POST['designTitle'])){
+if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
     $xml= new SimpleXMLElement("../xml/design.xml", null, true);
     $counter=0;
@@ -14,8 +14,14 @@ if (isset($_POST['designTitle'])){
 
     $counter++;
 
-  	$title = $_POST['designTitle'];
-    $category = $_POST['designCategory'];
+    $tmpFile = $_FILES['pic']['tmp_name'];
+    $imagename = $_FILES['pic']['name'];
+    $newFile = '../images/'.$imagename;
+    $result = move_uploaded_file($tmpFile, $newFile);
+
+    if ($result) {
+          $title = $_POST['designTitle'];
+      $category = $_POST['designCategory'];
 
     $posts = $xml->addChild('design');
 
@@ -23,8 +29,18 @@ if (isset($_POST['designTitle'])){
     $posts->addChild('category', $category);
     $posts->addChild('author', "autor");
     $posts->addChild('id',$counter);
-
+    $posts->addChild('pic', 'images/'.$imagename);
     $xml->asXML("../xml/design.xml");
+
+    unset($_SESSION['error']);
+         header("refresh: 0");
+         header("location: ../index.php");
+
+    }
+    else {
+          $_SESSION['error'] = "Niste odabrali sliku!";
+         header("location: ../index.php");
+    }
 }
 
 ?>
@@ -36,21 +52,16 @@ if (isset($_POST['designTitle'])){
       <h1 class="main-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque adipisci molestias.</h1>
 
       <div class="sort-bar">
-
-        <a class="sort-link" href="php/csvDesign.php">Download csv file
-        </a>
-
-          <a class="sort-link">Sort by
-          </a>
-
-          <ul class="sort-option">
-            <li>
-              Likes
-            </li>
-            <li>
-              Date
-            </li>
-          </ul>
+        <?php
+          session_start();
+          if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+           echo '';
+          }
+          else{
+             echo  '<a class="sort-link" href="php/csvDesign.php">Download csv file
+             </a>';
+          }
+        ?>
       </div>
 
       <div id='content-box' class="content-box clearfix">
@@ -74,7 +85,7 @@ if (isset($_POST['designTitle'])){
             $tmg = htmlspecialchars($_SERVER["PHP_SELF"]);
 
              echo  ' <div class="post-form">
-                 <form class="clearfix" id="new-post" role="form" action="<?php echo $tmp>" method="POST">Design title:<br>
+                 <form class="clearfix" id="new-post" enctype="multipart/form-data" role="form" action="php/design-list.php" method="POST">Design title:<br>
                    <input id="title" type="text" placeholder="Title" name="designTitle">
                    <br> Choose category:<br>
 
@@ -89,8 +100,8 @@ if (isset($_POST['designTitle'])){
 
                    <!-- missing for photo upload -->
 
-
-                   <input onclick="loadDesigns(true)" class="post" type="button" value="POST">
+                   <input id="image" type="file" class="img-input" name="pic" accept="image/*">
+                   <input onclick="loadDesigns(true)" class="post" name="dodaj" type="submit" value="POST">
 
                    <p id="validation"></p>
 

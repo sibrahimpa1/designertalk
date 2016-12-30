@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['postCategory'])){
+if (isset($_POST['postCategory']) && !empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['postCategory'])){
     $post = file_get_contents('php://input');
 
     $xml= new SimpleXMLElement("../xml/forum.xml", null, true);
@@ -27,7 +27,12 @@ if (isset($_POST['postCategory'])){
       $posts->addChild('title', $category);
       $posts->addChild('description', $desc);
       $posts->addChild('id', $counter);
+      $posts->addChild('comments', '0');
+      $posts->addChild('suggestions', '0');
     $xml->asXML("../xml/forum.xml");
+}
+else{
+  echo "<p id='phpValidation'>Please enter all fields and then submit post!</p>";
 }
 
 ?>
@@ -38,20 +43,17 @@ if (isset($_POST['postCategory'])){
   <h1 class="main-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque adipisci molestias.</h1>
 
   <div class="sort-bar">
-    <a class="sort-link" href="php/csvForum.php">Download csv file
-    </a>
-    <a class="sort-link">Sort by
-    </a>
+    <?php
+      session_start();
+      if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+       echo '';
+      }
+      else{
+         echo  '<a class="sort-link" href="php/csvForum.php">Download csv file
+         </a>';
+      }
+    ?>
 
-    <!-- ul class="sort-option">
-      <li>
-        Suggestions
-      </li>
-      <li>
-        Date
-      </li>
-    </ul>
-    -->
 
   </div>
 
