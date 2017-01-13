@@ -1,15 +1,11 @@
 <?php
 	session_start();
-if (isset($_POST['id'])){
-
-	$id = $_POST['id'];
+if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
   $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
   $connection->exec("set names utf8");
-  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum` WHERE id=$id;");
+  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum`;");
 
   $forum->execute();
-
-	$forumpost = $forum->fetch(PDO::FETCH_ASSOC);
 
 	if (!$forum) {
       $greska = $connection->errorInfo();
@@ -17,9 +13,10 @@ if (isset($_POST['id'])){
       exit();
  }
 
+	while($forumpost = $forum->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
-      <div class='forum-post-box'>
+        <div class='forum-post-box'>
           <p class='forum-category'>
             <span>Category:</span> <?php echo $forumpost['category'] ;?>
           </p>
@@ -38,17 +35,23 @@ if (isset($_POST['id'])){
           </p>
 
 					<?php
+						$temp = (string)$forumpost['id'];
+
 						if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 						 echo '';
 						}
 						else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
 					?>
-						  <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost['id'];?>, true);">Delete post</a>
+						  <a class="delete-post"  onclick="return deleteForum( '<?php echo $temp;?>', 'true');">Delete post</a>
 					<?php
 							}
+
 					?>
 
-        </div>
+          <a class='see-more open-post' onclick="return loadForumPost( '<?php echo $temp;?>', 'true');">See full post</a>
+
+			  </div>
 <?php
+	}
 }
 ?>

@@ -1,18 +1,20 @@
 <?php
-if (isset($_POST['id'])){
-    echo("jajajajaj");
+session_start();
 
-    $tmp = $_POST['id'];
+if (isset($_POST['id']))  {
 
-    $xml= new SimpleXMLElement("../xml/forum.xml", null, true);
+	$query = $_POST['id'];
+  $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+  $connection->exec("set names utf8");
+  $forum = $connection->prepare("DELETE FROM `forum` WHERE id=$query;");
+  $forum->bindValue(":query", $query, PDO::PARAM_INT);
 
-    foreach($xml->children() as $forumpost) {
-      if($forumpost->id==$tmp){
-        $forumpost=dom_import_simplexml($forumpost);
-        $forumpost->parentNode->removeChild($forumpost);
-      }
-    }
+    $forum->execute();
 
-    $xml->asXML("../xml/forum.xml");
+    if (!$forum) {
+        $greska = $connection->errorInfo();
+        print "SQL greška: " . $greska[2];
+        exit();
+   }
 }
 ?>

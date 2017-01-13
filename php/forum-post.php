@@ -1,15 +1,13 @@
 <?php
 	session_start();
-if (isset($_POST['id'])){
-
-	$id = $_POST['id'];
+if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
+	$query = $_GET['q'];
   $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
   $connection->exec("set names utf8");
-  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum` WHERE id=$id;");
-
+  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum` WHERE id=:query;");
+  $forum->bindValue(":query", $query, PDO::PARAM_INT);
   $forum->execute();
 
-	$forumpost = $forum->fetch(PDO::FETCH_ASSOC);
 
 	if (!$forum) {
       $greska = $connection->errorInfo();
@@ -17,8 +15,14 @@ if (isset($_POST['id'])){
       exit();
  }
 
+while($forumpost = $forum->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
+  <div id='post-page' class="forum-post-page grid-5">
+
+    <a class="go-back" onclick='loadForum()'>Go back</a>
+
+    <div id='content-box' class="content-box clearfix">
       <div class='forum-post-box'>
           <p class='forum-category'>
             <span>Category:</span> <?php echo $forumpost['category'] ;?>
@@ -37,18 +41,23 @@ if (isset($_POST['id'])){
             </span>
           </p>
 
-					<?php
-						if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-						 echo '';
-						}
-						else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
-					?>
-						  <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost['id'];?>, true);">Delete post</a>
-					<?php
-							}
-					?>
+          <?php
+            if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+             echo '';
+            }
+            else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
+          ?>
+              <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost['id'];?>, true);">Delete post</a>
+          <?php
+              }
+          ?>
 
         </div>
+    </div>
+
+  </div>
+
 <?php
+  }
 }
 ?>

@@ -104,7 +104,7 @@ function loadMain() {
   loadPart("php/join-us-box.php", "main-page", function() {
     loadPart("ajax/main-page.html", "main-page", function() {
       loadPart("php/design-box.php", "design-wrap", function() {
-        loadPart("php/forum-box.php", "forum-wrap")
+        loadPart("php/forum-list.php", "forum-wrap")
       })
     })
   });
@@ -203,7 +203,7 @@ function loadForum(write) {
   }
   document.getElementById("main-page").innerHTML = "";
   loadPart("php/forum.php", "main-page", function() {
-    loadPart("php/forum-box.php", "content-box")
+    loadPart("php/forum-list.php", "content-box")
   });
 }
 
@@ -228,17 +228,15 @@ function deleteForum(id, write) {
   }
   document.getElementById("main-page").innerHTML = "";
   loadPart("php/forum.php", "main-page", function() {
-    loadPart("php/forum-box.php", "content-box")
+    loadPart("php/forum-list.php", "content-box")
   });
 }
 
 
-function loadForumPost() {
+function loadForumPost(id, write) {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/forum-post.html", "main-page", function() {
-    loadPart('ajax/forum-post.html', "content-box", function() {
+  loadPart("php/forum-post.php?q="+id, "main-page", function() {
       loadPart('ajax/comment-box.html', "post-page")
-    })
   });
 
 }
