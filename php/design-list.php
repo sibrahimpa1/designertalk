@@ -1,50 +1,43 @@
+
+
 <?php
-
 session_start();
-
-
 if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
-    $xml= new SimpleXMLElement("../xml/design.xml", null, true);
-    $counter=0;
+  if(isset($_SESSION['username']) && isset($_SESSION['password']))
+    $user = $_SESSION['user'];
 
-    foreach($xml->children() as $design) {
-      $counter+=1;
-    }
-
-    $counter++;
+    $title = $_POST['designTitle'];
+    $category = $_POST['designCategory'];
+    $userid = intval($user['id']);
 
     $tmpFile = $_FILES['pic']['tmp_name'];
     $imagename = $_FILES['pic']['name'];
     $newFile = '../images/'.$imagename;
     $result = move_uploaded_file($tmpFile, $newFile);
 
-    if ($result) {
-          $title = $_POST['designTitle'];
-      $category = $_POST['designCategory'];
+    $imagepath = ('images/'.$imagename);
 
-    $posts = $xml->addChild('design');
+    $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+    $connection->exec("set names utf8");
+    $adddesign = $connection->query("INSERT INTO `design` (`id`, `id_user`, `title`, `category`, `image`) VALUES (NULL, '$userid', '$title', '$category', '$imagepath');");
 
-    $posts->addChild('name', $title);
-    $posts->addChild('category', $category);
-    $posts->addChild('author', "autor");
-    $posts->addChild('id',$counter);
-    $posts->addChild('pic', 'images/'.$imagename);
-    $xml->asXML("../xml/design.xml");
+    if (!$adddesign) {
+        $greska = $connection->errorInfo();
+        print "SQL greška: " . $greska[2];
+        exit();
+     }
 
-    unset($_SESSION['error']);
-         header("refresh: 0");
-         header("location: ../index.php");
+     unset($_SESSION['error']);
+     header("refresh: 0");
+     header("location: ../index.php");
 
-    }
-    else {
-          $_SESSION['error'] = "Niste odabrali sliku!";
-         header("location: ../index.php");
-    }
+}
+else{
+  echo "<p id='phpValidation'>Please enter all fields and then submit post!</p>";
 }
 
 ?>
-
 
 
   <div class="designs-page grid-5">

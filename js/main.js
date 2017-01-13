@@ -84,8 +84,7 @@ function loadPart(content, where, cb) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 
-      document.getElementById(where).innerHTML +=
-        this.responseText;
+      document.getElementById(where).innerHTML +=  this.responseText;
 
       if (typeof cb === "function") {
         cb();
@@ -158,13 +157,9 @@ function deleteDesign(id, write) {
           console.log("Post deleted");
         }
     };
-
-
     params = "id=" + id;
-
     xhttp.open("POST", 'php/deleteDesign.php', true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
     xhttp.send(params);
   }
   document.getElementById("main-page").innerHTML = "";
@@ -173,12 +168,10 @@ function deleteDesign(id, write) {
   });
 }
 
-function loadDesignPost() {
+function loadDesignPost(id, write) {
   document.getElementById("main-page").innerHTML = "";
-  loadPart("ajax/design-post.html", "main-page", function() {
-    loadPart('ajax/big-design-box.html', "content-box", function() {
+  loadPart("php/design-post.php?q="+id, "main-page", function() {
       loadPart('ajax/comment-box.html', "post-page")
-    })
   });
 }
 

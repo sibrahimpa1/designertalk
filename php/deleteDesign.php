@@ -1,17 +1,20 @@
 <?php
+session_start();
+
 if (isset($_POST['id'])){
 
-    $tmp = $_POST['id'];
+	$query = $_POST['id'];
+  $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+  $connection->exec("set names utf8");
+  $designs = $connection->prepare("DELETE FROM `design` WHERE id=$query;");
+  $designs->bindValue(":query", $query, PDO::PARAM_INT);
 
-    $xml= new SimpleXMLElement("../xml/design.xml", null, true);
+    $designs->execute();
 
-    foreach($xml->children() as $design) {
-      if($design->id==$tmp){
-        $design=dom_import_simplexml($design);
-        $design->parentNode->removeChild($design);
-      }
-    }
-
-    $xml->asXML("../xml/design.xml");
+    if (!$designs) {
+        $greska = $connection->errorInfo();
+        print "SQL greška: " . $greska[2];
+        exit();
+   }
 }
 ?>
