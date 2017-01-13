@@ -14,7 +14,7 @@
   <link rel='stylesheet' type='text/css' href='css/profile.css' />
   <link rel='stylesheet' type='text/css' href='css/about.css' />
   <link rel='stylesheet' type='text/css' href='css/contact.css' />
-  <link rel='stylesheet' type='text/css' href='../css/login.css' />
+  <link rel='stylesheet' type='text/css' href='css/login.css' />
 
   <link rel='stylesheet' type='text/css' href='css/forum-post.css' />
   <link rel='stylesheet' type='text/css' href='css/design-post.css' />
@@ -52,11 +52,12 @@
              echo '<a onclick="loadLogin()">Log in</a>';
             }
             else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
-               echo  '<a style="margin-left: 20px;" href="php/csvUsers.php">Users csv</a>
-               <a href="php/pdf.php">pdf</a> <a href="php/logOut.php">Log out</a>';
+              $k = $_SESSION['username'];
+               echo  "<a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
+               <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
             }
             else{
-               echo  '<a href="php/logOut.php">Log out</a>';
+               echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
             }
           ?>
 
@@ -81,16 +82,16 @@
       <a onclick='loadContact()'>Contact</a>
 
       <?php
-        session_start();
         if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
          echo '<a onclick="loadLogin()">Log in</a>';
         }
         else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
-           echo  '<a style="margin-left: 20px;" href="php/csvUsers.php">Users csv</a>
-           <a href="php/pdf.php">pdf</a> <a href="php/logOut.php">Log out</a>';
+          $k = $_SESSION['username'];
+           echo  "<a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
+           <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
         }
         else{
-           echo  '<a href="php/logOut.php">Log out</a>';
+           echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
         }
       ?>
     </div>

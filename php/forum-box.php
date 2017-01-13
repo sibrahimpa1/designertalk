@@ -1,29 +1,36 @@
 <?php
 	session_start();
-	$xml=simplexml_load_file("../xml/forum.xml") or die("Error: Cannot create object");
+if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
+  $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+  $connection->exec("set names utf8");
+  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum`;");
 
-	foreach($xml->children() as $forumpost) {
+  $forum->execute();
+
+	if (!$forum) {
+      $greska = $connection->errorInfo();
+      print "SQL greška: " . $greska[2];
+      exit();
+ }
+
+	while($forumpost = $forum->fetch(PDO::FETCH_ASSOC)) {
 ?>
 
         <div class='forum-post-box'>
           <p class='forum-category'>
-            <span>Category:</span> <?php echo $forumpost->category ;?>
+            <span>Category:</span> <?php echo $forumpost['category'] ;?>
           </p>
-          <div class='recommend-info'>
-            <img src='images/heart.svg'>
-            <span> <?php echo $forumpost->suggestions ;?> suggestions</span>
-          </div>
 
           <p></p>
-          <h4><?php echo $forumpost->title ;?></h4>
+          <h4><?php echo $forumpost['title'] ;?></h4>
           <p class='forum-post-description'>
-            <?php echo $forumpost->description ;?>
+            <?php echo $forumpost['content'] ;?>
           </p>
 
           <p class='forum-post-info'>
             <span class='comment-icon'>
                         <img src='images/comment.svg'>
-                  <a href='#'> <?php echo $forumpost->comments;?> comments</a>
+                  <a href='#'> <?php echo $forumpost['comments'];?> comments</a>
             </span>
           </p>
 
@@ -33,7 +40,7 @@
 						}
 						else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
 					?>
-						  <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost->id;?>, true);">Delete post</a>
+						  <a class="delete-post"  onclick="return deleteForum( <?php echo (string)$forumpost['id'];?>, true);">Delete post</a>
 					<?php
 							}
 					?>
@@ -42,5 +49,6 @@
           <a class='see-more open-post' onclick='loadForumPost()'>See full post</a>
         </div>
 <?php
-  	}
+	}
+}
 ?>

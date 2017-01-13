@@ -4,26 +4,24 @@
 
   if(!empty($_POST['userName']) && !empty($_POST['userPassword']) && !empty($_POST['userEmail'] )){
 
-    $xml= new SimpleXMLElement("../xml/users.xml", null, true);
-    $counter = count($xml->children());
+     $username = $_POST['userName'];
+     $pass = $_POST['userPassword'];
+     $email = $_POST['userEmail'];
 
-    $getname = $_POST['userName'];
-    $getpass = $_POST['userPassword'];
-    $getmail = $_POST['userEmail'];
+     $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+     $connection->exec("set names utf8");
+     $adduser = $connection->query("INSERT INTO `users` (`id`, `username`, `pass`, `email`) VALUES (NULL, '$username', '$pass', '$email');");
 
-    $users = $xml->addChild('user');
+     if (!$adduser) {
+         $greska = $connection->errorInfo();
+         print "SQL greška: " . $greska[2];
+         exit();
+      }
 
-    $users->addChild('id', $counter+1);
-    $users->addChild('username', $getname);
-    $users->addChild('password', $getpass);
-    $users->addChild('email', $getmail);
-    $users->addChild('image', 'images/user.jpg');
-    $users->addChild('alt', 'user-image');
 
-    $xml->asXML("../xml/users.xml");
     unset($_SESSION['error']);
-         header("refresh: 0");
-         header("location: ../index.php");
+    header("refresh: 0");
+    header("location: ../index.php");
   }
   else{
       echo "<p id='phpValidation'>Please enter all fields and then submit post!</p>";

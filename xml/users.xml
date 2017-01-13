@@ -19,4 +19,4 @@
         <image>images/user.jpg</image>
         <alt>user-image</alt>
     </user>
-<user><id>3</id><username>senkanovi</username><password>senkanovi</password><email>senka@se.se</email><image>images/user.jpg</image><alt>user-image</alt></user></users>
+<user><id>3</id><username>senkanovi</username><password>senkanovi</password><email>senka@se.se</email><image>images/user.jpg</image><alt>user-image</alt></user><user><id>4</id><username>nejrahajde</username><password>nejrahajde</password><email>nejra@nejra.ne</email><image>images/user.jpg</image><alt>user-image</alt></user></users>

@@ -53,7 +53,6 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
       <div class="sort-bar">
         <?php
-          session_start();
           if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
            echo '';
           }

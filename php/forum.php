@@ -1,35 +1,30 @@
 <?php
 session_start();
 
-if (isset($_POST['postCategory']) && !empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['postCategory'])){
-    $post = file_get_contents('php://input');
+if (!empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['postCategory'])){
 
-    $xml= new SimpleXMLElement("../xml/forum.xml", null, true);
-  //  echo($_POST['postTitle']);
+  if(isset($_SESSION['username']) && isset($_SESSION['password']))
+    $user = $_SESSION['user'];
 
-      $counter=0;
+    $title = $_POST['postTitle'];
+    $category = $_POST['postCategory'];
+    $content = $_POST['postDesc'];
+    $userid = intval($user['id']);
 
-      foreach($xml->children() as $forumpost) {
-        $counter+=1;
-      }
+    $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+    $connection->exec("set names utf8");
+    $addpost = $connection->query("INSERT INTO `forum` (`id`, `title`, `category`, `content`, `userid`, `comments`) VALUES (NULL, '$title', '$category', '$content', '$userid', '20');");
 
-      $counter++;
+    if (!$addpost) {
+        $greska = $connection->errorInfo();
+        print "SQL greška: " . $greska[2];
+        exit();
+     }
 
+     unset($_SESSION['error']);
+     header("refresh: 0");
+     header("location: ../index.php");
 
-      $title = $_POST['postTitle'];
-      $desc = $_POST['postDesc'];
-      $category = $_POST['postCategory'];
-
-
-      $posts = $xml->addChild('forumpost');
-
-      $posts->addChild('category', $title);
-      $posts->addChild('title', $category);
-      $posts->addChild('description', $desc);
-      $posts->addChild('id', $counter);
-      $posts->addChild('comments', '0');
-      $posts->addChild('suggestions', '0');
-    $xml->asXML("../xml/forum.xml");
 }
 else{
   echo "<p id='phpValidation'>Please enter all fields and then submit post!</p>";
@@ -44,7 +39,6 @@ else{
 
   <div class="sort-bar">
     <?php
-      session_start();
       if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
        echo '';
       }

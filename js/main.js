@@ -236,7 +236,7 @@ function deleteForum(id, write) {
 function loadForumPost() {
   document.getElementById("main-page").innerHTML = "";
   loadPart("ajax/forum-post.html", "main-page", function() {
-    loadPart('php/forum-box.php', "content-box", function() {
+    loadPart('ajax/forum-post.html', "content-box", function() {
       loadPart('ajax/comment-box.html', "post-page")
     })
   });

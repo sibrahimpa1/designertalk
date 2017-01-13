@@ -5,27 +5,43 @@
 	if (!empty($_GET['username']) && !empty($_GET['password'])) {
 		$u = htmlEntities($_GET['username'], ENT_QUOTES);
 		$p = htmlEntities($_GET['password'], ENT_QUOTES);
-	//else return false;
-	$xml=simplexml_load_file("../xml/users.xml") or die("Error: Cannot create object");
-	foreach ($xml->children() as $user) {
-		if($user->username == $u && $user->password == $p) {
 
-			//	session_register($u);
-    	//å	session_register($p);
-		    $_SESSION['username'] = $_GET['username']; // store username
-		    $_SESSION['password'] = $_GET['password']; // store password
+		$connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+    $connection->exec("set names utf8");
 
-				unset($_SESSION['error']);
-						 header("refresh: 0");
-						 header("location: ../index.php");
-		}
-		else {
+		$user = $connection->prepare("SELECT id FROM users WHERE username = :username AND password = :password;");
+
+		$user->bindParam(':username', $u);
+	  $user->bindParam(':password', $p);
+	  $user->execute();
+
+		$columns=$user->fetchColumn();
+
+			if (is_array($user)) {
+				foreach ($user->fetch() as $rez) {
+
+		       $_SESSION['username'] = $u;
+		       $_SESSION['password'] = $p;
+		       $k = intval($rez['id']);
+
+		       $_SESSION['user'] = $k;
+		       unset($_SESSION['error']);
+					 header("refresh: 0");
+					 header("location: ../index.php");
+		    }
+			}
+			else{
+				$rez = $user->fetch();
+				$_SESSION['username'] = $u;
+				$_SESSION['password'] = $p;
+				$k = intval($rez['id']);
+
+				$_SESSION['user'] = $k;
 				unset($_SESSION['error']);
 				header("refresh: 0");
 				header("location: ../index.php");
-				echo "<p>No such user!</p>";
-    	}
-  }
+			}
+
 }
 
 ?>
@@ -45,7 +61,8 @@
 
 
                       <input onclick='loginValidate()' class="log-in" name="login" type="submit" value="Log in">
-                        <p id='validation'></p>
+                      <p id='validation'></p>
+
                   </form>
 
           </div>
