@@ -52,12 +52,12 @@
              echo '<a onclick="loadLogin()">Log in</a>';
             }
             else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
-              $k = $_SESSION['username'];
+              $tm = $_SESSION['username'];
                echo  "<a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
-               <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
+               <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$tm</a>";
             }
             else{
-               echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
+               echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$tm</a>";
             }
           ?>
 
@@ -91,6 +91,7 @@
            <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
         }
         else{
+          $k = $_SESSION['username'];
            echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
         }
       ?>
