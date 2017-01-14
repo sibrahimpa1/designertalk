@@ -18,7 +18,7 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
     $imagepath = ('images/'.$imagename);
 
-    $connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
+    $connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
     $connection->exec("set names utf8");
     $adddesign = $connection->query("INSERT INTO `design` (`id`, `id_user`, `title`, `category`, `image`) VALUES (NULL, '$userid', '$title', '$category', '$imagepath');");
 

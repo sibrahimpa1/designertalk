@@ -6,7 +6,7 @@
 		$u = htmlEntities($_GET['username'], ENT_QUOTES);
 		$p = htmlEntities($_GET['password'], ENT_QUOTES);
 
-		$connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
+		$connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
     $connection->exec("set names utf8");
 
 		$user = $connection->prepare("SELECT `id`, `username`, `pass` FROM `users` WHERE username = :username AND pass = :password;");

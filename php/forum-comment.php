@@ -4,7 +4,7 @@
 
   if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
 	$query = $_GET['q'];
-  $connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
+  $connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
   $connection->exec("set names utf8");
   $forum = $connection->prepare("SELECT f.id, u.id, f.content as content, u.username as username, f.id, f.id_post, f.id_user, content FROM `forum-comment` AS f, `users` AS u  WHERE f.id_post=:query AND f.id_user=u.id ORDER BY f.id;");
   $forum->bindValue(":query", $query, PDO::PARAM_INT);

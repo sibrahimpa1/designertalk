@@ -1,7 +1,7 @@
 <?php
 	session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
-  $connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
+  $connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
   $connection->exec("set names utf8");
   $forum = $connection->prepare("SELECT id, title, category, content, userid FROM `forum`;");
 
