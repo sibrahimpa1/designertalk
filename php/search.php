@@ -1,6 +1,6 @@
 <?php
 
-	$connection = new PDO("mysql:dbname=wt;host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST')", "admin", "admin");
+	$mysql_db_host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST'); $connection = new PDO("mysql:dbname=wt;host=$mysql_db_host", "admin", "admin");
 	$connection->exec("set names utf8");
 
 	$query= htmlEntities($_GET['q'], ENT_QUOTES);

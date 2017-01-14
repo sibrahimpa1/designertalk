@@ -1,7 +1,7 @@
 <?php
 session_start();
 		if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
-		$connection = new PDO("mysql:dbname=wt;host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST')", "admin", "admin");
+		$mysql_db_host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST'); $connection = new PDO("mysql:dbname=wt;host=$mysql_db_host", "admin", "admin");
 		$connection->exec("set names utf8");
 		$designs = $connection->prepare("SELECT u.username as username, d.id AS id, d.id_user AS id_user, d.title AS title, d.category AS category, d.image AS image FROM `design` AS d, `users` AS u WHERE d.id_user = u.id;");
 		$designs->execute();
