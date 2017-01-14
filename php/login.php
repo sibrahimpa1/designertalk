@@ -12,7 +12,7 @@
 		$user = $connection->prepare("SELECT `id`, `username`, `pass` FROM `users` WHERE username = :username AND pass = :password;");
 
 		$user->bindValue(":username", $u);
-	  $user->bindValue(":password", md5($p));
+	  $user->bindValue(":password", $p);
 		$user->execute();
 		$rez = $user->fetch();
 		if($rez){
