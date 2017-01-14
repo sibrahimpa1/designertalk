@@ -43,7 +43,6 @@
           <li><a onclick='loadDesigns()'>Designs</a></li>
           <li><a onclick='loadForum()'>Forum</a></li>
           <li><a onclick='loadAbout()'>About Us</a></li>
-
           <li><a onclick='loadContact()'>Contact</a></li>
 
           <?php
@@ -53,8 +52,14 @@
             }
             else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
               $tm = $_SESSION['username'];
-               echo  "<a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
-               <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$tm</a>";
+               echo  "
+               <div class='admin-links'>
+               <a href='php/csvUsers.php'>Users csv</a>
+                <a href='php/pdf.php'>pdf</a>
+                <a href='php/convert.php'>convert</a>
+                </div>
+               <a href='php/logOut.php'>Log out</a>
+               <a href='#'>$tm</a>";
             }
             else{
                echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$tm</a>";
@@ -80,15 +85,20 @@
       <a onclick='loadForum()'>Forum</a>
       <a onclick='loadAbout()'>About Us</a>
       <a onclick='loadContact()'>Contact</a>
-
       <?php
         if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
          echo '<a onclick="loadLogin()">Log in</a>';
         }
         else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
           $k = $_SESSION['username'];
-           echo  "<a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
-           <a href='php/pdf.php'>pdf</a> <a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
+           echo  "
+          <div class='admin-links'>
+          <a style='margin-left: 20px;' href='php/csvUsers.php'>Users csv</a>
+           <a href='php/pdf.php'>pdf</a>
+           <a href='php/convert.php'>convert</a>
+           </div>
+           <a href='php/logOut.php'>Log out</a>
+           <a href='#'>$k</a>";
         }
         else{
           $k = $_SESSION['username'];
@@ -101,10 +111,14 @@
 
   </header>
 
-  <div id='join' class="join-us-bar clearfix">
-    <h4>Join us in few seconds!</h4>
-    <a onclick='loadRegister()'>Register</a>
-  </div>
+<?php
+  if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+   echo '<div id="join" class="join-us-bar clearfix">
+     <h4>Join us in few seconds!</h4>
+     <a onclick="loadRegister()">Register</a>
+   </div>';
+  }
+?>
 
 
   <div id='main-page' class="main-page-content">

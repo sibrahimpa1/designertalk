@@ -55,7 +55,7 @@ else{
           }
         ?>
 
-        <textarea class="search-input" type="search" onkeyup="showSearch(this.value)" placeholder="search"></textarea>
+        <input class="search-input" type="search" onkeyup="showSearch(this.value)" placeholder="search">
         <div id="search-dropdown" class="search-content">
 
         </div>

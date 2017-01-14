@@ -9,7 +9,7 @@ if (!empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['
     $title = $_POST['postTitle'];
     $category = $_POST['postCategory'];
     $content = $_POST['postDesc'];
-    $userid = intval($user['id']);
+    $userid = (string)$user;
 
     $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
     $connection->exec("set names utf8");
@@ -48,7 +48,7 @@ else{
       }
     ?>
 
-    <textarea class="search-input" type="search" onkeyup="showSearchPosts(this.value)" placeholder="Search.."></textarea>
+    <input class="search-input" type="search" onkeyup="showSearchPosts(this.value)" placeholder="Search.." rows="1" cols="20">
     <div id="search-dropdown" class="search-content">
 
     </div>

@@ -1,0 +1,119 @@
+textarea{
+  outline: none !important;
+}
+
+.contact-page {
+    min-height: 40vh;
+    margin: auto;
+    float: none;
+    margin-top: 20px;
+    position: relative;
+}
+
+.contact-us-photo{
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.contact-us-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-title{
+  color: #e57764;
+  font-size: 57px;
+  font-weight: 700;
+  margin-right: 40px;
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+}
+.contact-page h3{
+  text-align: center;
+  color: #606060;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.contact-page p{
+  width: 70%;
+margin: auto;
+font-size: 21px;
+text-align: center;
+font-weight: 100;
+color: #606060;
+line-height: 25px;
+}
+
+.contact-form{
+  background-color: rgba(0, 0, 0, 0.63);
+  border-radius: 0px;
+  padding: 20px;
+  margin: 30px auto;
+  float: none;
+}
+
+.contact-form form {
+    color: white;
+    font-weight: 100;
+}
+
+.contact-form form input {
+  margin-bottom: 10px;
+  height: 25px;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 0.21);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 100;
+
+  padding: 15px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contact-form form textarea {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  background-color: rgb(117, 117, 117);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+  padding: 15px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+textarea::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    font-weight: 100;
+    font-size: 13px;
+}
+
+
+input::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    font-weight: 100;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.send{
+  background-color: rgba(216, 118, 97, 0.5) !important;
+  width: 30% !important;
+  color: white !important;
+  margin: auto;
+  display: block;
+  height: 30px !important;
+  padding: 0px !important;
+}

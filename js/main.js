@@ -18,7 +18,7 @@ function showSearch(input) {
           document.getElementById("search-dropdown").innerHTML = "error";
   }
 
-  xmlhttp.open("GET","../php/search.php?q="+input,true);
+  xmlhttp.open("GET","php/search.php?q="+input,true);
   xmlhttp.send();
 }
 
@@ -37,7 +37,7 @@ function showSearchPosts(input) {
           document.getElementById("search-dropdown").innerHTML = "error";
   }
 
-  xmlhttp.open("GET","../php/searchPosts.php?q="+input,true);
+  xmlhttp.open("GET","php/findPosts.php?q="+input,true);
   xmlhttp.send();
 }
 

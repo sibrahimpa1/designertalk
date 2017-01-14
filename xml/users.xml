@@ -2,21 +2,17 @@
 <users>
 
     <user>
-
         <id>1</id>
-        <image>images/user.jpg</image>
-        <alt>User image</alt>
-        <email>example@test.hehe</email>
+        <username>admin123</username>
         <password>admin123</password>
-        <username>admin123</username>  
+        <email>example@test.hehe</email>
     </user>
 
     <user>
-        <id>2</id>
-        <username>dadadada</username>
-        <password>dadadada</password>
-        <email>dadadada@da.da</email>
-        <image>images/user.jpg</image>
-        <alt>user-image</alt>
+        <id>5</id>
+        <username>admin123444</username>
+        <password>admin123444</password>
+        <email>example@testeee.hehe</email>
     </user>
-<user><id>3</id><username>senkanovi</username><password>senkanovi</password><email>senka@se.se</email><image>images/user.jpg</image><alt>user-image</alt></user><user><id>4</id><username>nejrahajde</username><password>nejrahajde</password><email>nejra@nejra.ne</email><image>images/user.jpg</image><alt>user-image</alt></user><user><id>5</id><username>neksneks</username><password>neksneks</password><email>nek@nek.ca</email><image>images/user.jpg</image><alt>user-image</alt></user></users>
+
+</users>
