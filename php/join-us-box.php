@@ -24,7 +24,7 @@
     header("location: ../index.php");
   }
   else{
-      echo "<p id='phpValidation'>Please enter all fields and then submit post!</p>";
+      echo "";
   }
 
 
@@ -42,7 +42,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
             <h3 class="grid-2">Join us right now!</h3>
 
             <div class="join-form grid-3">
-                <form id="register" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form id="register" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
                     Choose username:<br>
                     <input id="user" type="text" placeholder="Username" name="userName">
                     <br>Enter password:<br>
