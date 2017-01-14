@@ -9,25 +9,29 @@
 		$connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
     $connection->exec("set names utf8");
 
-		$user = $connection->prepare("SELECT `id` FROM `users` WHERE username = :username AND pass = :password;");
+		$user = $connection->prepare("SELECT `id`, `username`, `pass` FROM `users` WHERE username = :username AND pass = :password;");
 
-		$user->bindValue(":username", $u, PDO::PARAM_STR);
-	  $user->bindValue(":password", $p, PDO::PARAM_STR);
+		$user->bindValue(":username", $u);
+	  $user->bindValue(":password", $p);
 		$user->execute();
+		$rez = $user->fetch();
+		if($rez){
+	   $_SESSION['username'] = $u;
+	   $_SESSION['password'] = $p;
 
-			$rez = $user->fetch();
-				$_SESSION['username'] = $rez['username'];
-				$_SESSION['password'] = $rez['pass'];
-				$k = $rez['id'];
-				$_SESSION['user'] = $k;
-				unset($_SESSION['error']);
-
-
-
-				header("refresh: 0");
-				header("location: ../index.php");
-
-
+	   $k = $rez['id'];
+	   $_SESSION['user'] = $k;
+		 unset($_SESSION['error']);
+		 header("refresh: 0");
+		 header("location: ../index.php");;
+		}
+		else{
+			header("refresh: 0");
+			header("location: ../index.php");
+			$greska = $connection->errorInfo();
+			print "SQL greška: " . $greska[2];
+			exit();
+		}
 }
 
 ?>

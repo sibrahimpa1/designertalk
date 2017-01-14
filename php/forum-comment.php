@@ -6,7 +6,7 @@
 	$query = $_GET['q'];
   $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
   $connection->exec("set names utf8");
-  $forum = $connection->prepare("SELECT u.id, f.content as content, u.username as username, f.id, f.id_post, f.id_user, content FROM `forum-comment` AS f, `users` AS u  WHERE f.id_post=:query AND f.id_user=u.id;");
+  $forum = $connection->prepare("SELECT f.id, u.id, f.content as content, u.username as username, f.id, f.id_post, f.id_user, content FROM `forum-comment` AS f, `users` AS u  WHERE f.id_post=:query AND f.id_user=u.id ORDER BY f.id;");
   $forum->bindValue(":query", $query, PDO::PARAM_INT);
   $forum->execute();
 
@@ -36,7 +36,7 @@
       </div>
 <?php
   }
-?>
+      if(isset($_SESSION['user'])){?>
       <div class="input-comment clearfix">
         <form id='add-comment' method="POST" action="php/addComment.php">
           Enter your comment here:<br>
@@ -51,5 +51,14 @@
     </div>
 
 <?php
+}
+
+else{ ?>
+<div class='please-login'>
+  Please login to leave a comment
+</div>
+
+</div>
+<?php  }
 }
 ?>
