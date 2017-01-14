@@ -11,7 +11,7 @@ if (!empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['
     $content = $_POST['postDesc'];
     $userid = (string)$user;
 
-    $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+    $connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
     $connection->exec("set names utf8");
     $addpost = $connection->query("INSERT INTO `forum` (`id`, `title`, `category`, `content`, `userid`) VALUES (NULL, '$title', '$category', '$content', '$userid');");
 

@@ -1,6 +1,6 @@
 <?php
 
-	$connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
+	$connection = PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin"));
 	$connection->exec("set names utf8");
 
 	$forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum`;");
