@@ -69,7 +69,18 @@ Spirala 3.
   - uradjen deployment stranice na OpenShiftu-u:
   http://designertalk-wt-designertalk-wt.44fs.preview.openshiftapps.com/
 
+  Spirala 4.
 
+    - Napravljena MySQL baza za 5 povezanih tabela
+    - Podaci prilikom registracije, dodavanja novog forum posta, dizajna ili komentara se spasavaju u bazu
+    - Svi registrovani korisnici mogu dodati novi dizajn/forum post, i komentare na te postove
+    - Samo admin moze brisati dizajn postove i forum postove, ostali korisnici ne mogu
+    - U headeru se nalazi link za prebacivanje podataka iz xml-a u bazu podataka ali radi samo za users.xml
+    - Search se nalazi na odgovarajucim stranicama za dizajn i forum, i pretrazuje podatke iz baze po imenu ili opisu posta (dizajn po kategoriji).
+    - Napravljen hosting stranice na OpenShiftu:
+        http://designertalk-wt-designertalk-wt.44fs.preview.openshiftapps.com/index.php
+
+    - Nisam napravila metodu REST web servisa, i testirala web servis.
 
 
 Ibrahimpasic Senka, 16511

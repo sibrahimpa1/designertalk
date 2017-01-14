@@ -30,7 +30,9 @@
 
 ?>
 
-<div class="join-us-box overlay">
+<?php
+if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+  echo';<div class="join-us-box overlay">
 
     <img src="images/background.jpg" />
 
@@ -40,18 +42,24 @@
             <h3 class="grid-2">Join us right now!</h3>
 
             <div class="join-form grid-3">
-                <form id='register' method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form id="register" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     Choose username:<br>
-                    <input id='user' type="text" placeholder="Username" name='userName'>
+                    <input id="user" type="text" placeholder="Username" name="userName">
                     <br>Enter password:<br>
-                    <input id='pass' type="password" placeholder="Password" name='userPassword'>
+                    <input id="pass" type="password" placeholder="Password" name="userPassword">
                     <br> Your email:<br>
-                    <input id='email' type="text" placeholder="Email" name="userEmail">
-                    <input class='submit' type="submit" onclick="registerValidate()" value="Sign up">
-                    <p id='validation'></p>
+                    <input id="email" type="text" placeholder="Email" name="userEmail">
+                    <input class="submit" type="submit" onclick="registerValidate()" value="Sign up">
+                    <p id="validation"></p>
                 </form>
             </div>
         </div>
     </div>
 
-</div>
+</div>';
+}
+else{
+    echo "";
+}
+
+?>

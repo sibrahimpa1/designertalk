@@ -26,6 +26,9 @@
 }
 
 @media screen and ( max-width: 780px) {
+  #primary_nav_wrap {
+    display: flex;
+  }
   .modal .modal-view {
     margin-top: 5vh;
     width: 80%;

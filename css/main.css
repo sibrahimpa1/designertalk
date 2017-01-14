@@ -875,6 +875,7 @@ input::-webkit-input-placeholder {
   order: 2;
   width: 100%;
   justify-content: flex-end;
+  display: none;
 }
 
 #primary_nav_wrap ul {
