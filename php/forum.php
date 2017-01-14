@@ -13,7 +13,7 @@ if (!empty($_POST['postTitle']) && !empty($_POST['postDesc']) && !empty($_POST['
 
     $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
     $connection->exec("set names utf8");
-    $addpost = $connection->query("INSERT INTO `forum` (`id`, `title`, `category`, `content`, `userid`, `comments`) VALUES (NULL, '$title', '$category', '$content', '$userid', '20');");
+    $addpost = $connection->query("INSERT INTO `forum` (`id`, `title`, `category`, `content`, `userid`) VALUES (NULL, '$title', '$category', '$content', '$userid');");
 
     if (!$addpost) {
         $greska = $connection->errorInfo();
@@ -66,9 +66,9 @@ else{
 
     <?php
       if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-       echo '<h1 class="log-in-warning">Log in like admin to add new forum posts!</h1>';
+       echo '<h1 class="log-in-warning">Log in to add new forum posts!</h1>';
       }
-      else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
+      else if(isset($_SESSION['username']) && isset($_SESSION['password'])){
         $tmp=htmlspecialchars($_SERVER["PHP_SELF"]);
         echo '<div class="post-form">
       <form class="clearfix" id="new-post" role="form" action="<?php echo $tmp?>" method="POST">

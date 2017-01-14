@@ -78,7 +78,7 @@ else{
           if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
            echo '<h1 class="log-in-warning">Log in like admin to add new designs!</h1>';
           }
-          else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
+          else if(isset($_SESSION['username']) && isset($_SESSION['password'])){
             $tmg = htmlspecialchars($_SERVER["PHP_SELF"]);
 
              echo  ' <div class="post-form">

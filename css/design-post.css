@@ -64,7 +64,7 @@ textarea{
   margin-bottom: 10px;
   padding: 20px;
   min-height: 0px;
-  background-color: #fcf2f0;
+  background-color: white;
   box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
 }
 
@@ -90,7 +90,7 @@ textarea{
 .input-comment{
   margin-top: 20px;
   min-height: 100px;
-    background-color: #fcf2f0;
+    background-color: white;
     box-shadow: 5px 5px 20px -5px rgba(96, 96, 96, 0.43);
     padding: 20px;
 
@@ -100,7 +100,7 @@ textarea{
   width: 95%;
   height: 60px;
   margin: 10px auto;
-  background: rgba(237, 216, 216, 0.68);
+  background: rgb(238, 238, 238);
   border: 1px solid rgba(96, 96, 96, 0.2);
   border-radius: 5px;
   padding: 10px;

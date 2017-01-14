@@ -3,25 +3,17 @@ session_start();
 		if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
 		$connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
 		$connection->exec("set names utf8");
-		$designs = $connection->prepare("SELECT id, id_user, title, category, image FROM `design`;");
-		$names = $connection->prepare("SELECT id, username FROM `users`;");
+		$designs = $connection->prepare("SELECT u.username as username, d.id AS id, d.id_user AS id_user, d.title AS title, d.category AS category, d.image AS image FROM `design` AS d, `users` AS u WHERE d.id_user = u.id;");
 		$designs->execute();
-		$names->execute();
-
 
 		if (!$designs) {
 				$greska = $connection->errorInfo();
 				print "SQL greška: " . $greska[2];
 				exit();
 		}
-
-		while($designpost = $designs->fetch(PDO::FETCH_ASSOC)) {
-				while( $name = $names->fetch(PDO::FETCH_ASSOC)){
-					if((string)$designpost['id_user']==(string)$name['id'])
-						$tempName= (string)$name['username'];
-				}
-
-				$temp = (string)$designpost['id'];
+		
+		 while($designpost = $designs->fetch(PDO::FETCH_ASSOC)) {
+		 		$temp = (string)$designpost['id'];
 ?>
 
     <div class='design-post-box'>
@@ -39,7 +31,7 @@ session_start();
                 <span>Category:</span> <?php echo $designpost['category'] ;?>
             </p>
             <p class='design-autor'>
-                by <a href='#'><?php echo $tempName;?></a>
+                by <a href='#'><?php echo $designpost['username'];?></a>
             </p>
 
             <a class='see-more' onclick="return loadDesignPost( '<?php echo $temp;?>', 'true');">See full post</a>
@@ -60,4 +52,5 @@ session_start();
 <?php
 	}
 }
+
 ?>

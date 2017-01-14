@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
 	$query = $_GET['q'];
   $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
   $connection->exec("set names utf8");
-  $forum = $connection->prepare("SELECT id, title, category, content, userid, comments FROM `forum` WHERE id=:query;");
+  $forum = $connection->prepare("SELECT id, title, category, content, userid FROM `forum` WHERE id=:query;");
   $forum->bindValue(":query", $query, PDO::PARAM_INT);
   $forum->execute();
 
@@ -16,6 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
  }
 
 while($forumpost = $forum->fetch(PDO::FETCH_ASSOC)) {
+	$commentsquery=$connection->prepare("SELECT COUNT(*) as n FROM `forum-comment` WHERE id_post=:forumid;");
+	$commentsquery->bindValue(":forumid", $forumpost['id'], PDO::PARAM_INT);
+	$commentsquery->execute();
+	$commentsnumber = $commentsquery->fetch(PDO::FETCH_ASSOC);
 ?>
 
   <div id='post-page' class="forum-post-page grid-5">
@@ -37,7 +41,7 @@ while($forumpost = $forum->fetch(PDO::FETCH_ASSOC)) {
           <p class='forum-post-info'>
             <span class='comment-icon'>
                         <img src='images/comment.svg'>
-                  <a href='#'> <?php echo $forumpost['comments'];?> comments</a>
+                  <a href='#'> <?php echo (int)$commentsnumber['n'];?> comments</a>
             </span>
           </p>
 

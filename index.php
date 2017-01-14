@@ -38,8 +38,7 @@
       <div id='dropdown' class="dropdown">
 
         <ul>
-
-          <li><a onclick='loadProfile()'>Profile</a></li>
+        <!--  <li><a onclick='loadProfile()'>Profile</a></li> -->
           <li><a onclick='loadDesigns()'>Designs</a></li>
           <li><a onclick='loadForum()'>Forum</a></li>
           <li><a onclick='loadAbout()'>About Us</a></li>
@@ -48,7 +47,7 @@
           <?php
             session_start();
             if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-             echo '<a onclick="loadLogin()">Log in</a>';
+             echo '<a class="log-link" onclick="loadLogin()">Log in</a>';
             }
             else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
               $tm = $_SESSION['username'];
@@ -58,11 +57,12 @@
                 <a href='php/pdf.php'>pdf</a>
                 <a href='php/convert.php'>convert</a>
                 </div>
-               <a href='php/logOut.php'>Log out</a>
-               <a href='#'>$tm</a>";
+               <a class='log-link' href='php/logOut.php'>Log out</a>
+               <a class='log-link' href='#'>$tm</a>";
             }
             else{
-               echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$tm</a>";
+               echo  "<a class='log-link' href='php/logOut.php'>Log out</a>
+               <a class='log-link' href='#'>$tm</a>";
             }
           ?>
 
@@ -80,14 +80,14 @@
     </div>
 
     <div class="header-links grid-4">
-      <a onclick='loadProfile()'>Profile</a>
+    <!--  <a onclick='loadProfile()'>Profile</a> -->
       <a onclick='loadDesigns()'>Designs</a>
       <a onclick='loadForum()'>Forum</a>
       <a onclick='loadAbout()'>About Us</a>
       <a onclick='loadContact()'>Contact</a>
       <?php
         if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-         echo '<a onclick="loadLogin()">Log in</a>';
+         echo '<a class="log-link" onclick="loadLogin()">Log in</a>';
         }
         else if(($_SESSION['username'])=="admin123" && ($_SESSION['password'])=="admin123"){
           $k = $_SESSION['username'];
@@ -97,12 +97,12 @@
            <a href='php/pdf.php'>pdf</a>
            <a href='php/convert.php'>convert</a>
            </div>
-           <a href='php/logOut.php'>Log out</a>
-           <a href='#'>$k</a>";
+           <a style='margin-left:20px;' class='log-link' href='php/logOut.php'>Log out</a>
+           <a class='log-link' href='#'>$k</a>";
         }
         else{
           $k = $_SESSION['username'];
-           echo  "<a href='php/logOut.php'>Log out</a> <a href='#'>$k</a>";
+           echo  "<a style='margin-left:20px;' class='log-link' href='php/logOut.php'>Log out</a> <a class='log-link' href='#'>$k</a>";
         }
       ?>
     </div>
