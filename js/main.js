@@ -171,7 +171,7 @@ function deleteDesign(id, write) {
 function loadDesignPost(id, write) {
   document.getElementById("main-page").innerHTML = "";
   loadPart("php/design-post.php?q="+id, "main-page", function() {
-      loadPart('ajax/comment-box.html', "post-page")
+      loadPart("php/design-comment.php?q="+id, "post-page")
   });
 }
 

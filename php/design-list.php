@@ -9,7 +9,7 @@ if (isset($_POST['dodaj']) || isset($_POST['designCategory'])){
 
     $title = $_POST['designTitle'];
     $category = $_POST['designCategory'];
-    $userid = intval($user['id']);
+    $userid = $user;
 
     $tmpFile = $_FILES['pic']['tmp_name'];
     $imagename = $_FILES['pic']['name'];

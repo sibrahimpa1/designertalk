@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET')  {
 	$query = $_GET['q'];
   $connection = new PDO("mysql:dbname=wt;host=localhost;charset=utf8", "root", "");
   $connection->exec("set names utf8");
-  $design = $connection->prepare("SELECT id, id_user, title, category, image FROM `design` WHERE id=:query;");
+  $design = $connection->prepare("SELECT id, id_user, title, category, image, comments FROM `design` WHERE id=:query;");
   $design->bindValue(":query", $query, PDO::PARAM_INT);
   $names = $connection->prepare("SELECT id, username FROM `users`;");
 
