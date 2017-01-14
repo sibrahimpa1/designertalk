@@ -8,7 +8,7 @@
      $pass = $_POST['userPassword'];
      $email = $_POST['userEmail'];
 
-     $connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
+     $connection = new PDO("mysql:dbname=wt;host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST')", "admin", "admin");
      $connection->exec("set names utf8");
      $adduser = $connection->query("INSERT INTO `users` (`id`, `username`, `pass`, `email`) VALUES (NULL, '$username', '$pass', '$email');");
 

@@ -7,7 +7,7 @@ if (isset($_POST['content']))  {
   $postId = (string)$_POST['postId'];
   $userC = (string)$_POST['userComment'];
 
-  $connection = new PDO("mysql:dbname=wt;host=mysql-57-centos7", "admin", "admin");
+  $connection = new PDO("mysql:dbname=wt;host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST')", "admin", "admin");
   $connection->exec("set names utf8");
   $forum = $connection->prepare("INSERT INTO `forum-comment` (`id`, `id_post`, `id_user`, `content`) VALUES (NULL, '$postId', '$userC', '$query');");
 
