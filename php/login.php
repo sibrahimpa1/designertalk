@@ -6,13 +6,14 @@
 		$u = htmlEntities($_GET['username'], ENT_QUOTES);
 		$p = htmlEntities($_GET['password'], ENT_QUOTES);
 
-		$mysql_db_host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST'); $connection = new PDO("mysql:dbname=wt;host=$mysql_db_host", "admin", "admin");
+		$mysql_db_host=getenv('MYSQL_55_CENTOS7_SERVICE_HOST');
+		$connection = new PDO("mysql:dbname=wt;host=$mysql_db_host", "admin", "admin");
     $connection->exec("set names utf8");
 
 		$user = $connection->prepare("SELECT `id`, `username`, `pass` FROM `users` WHERE username = :username AND pass = :password;");
 
 		$user->bindValue(":username", $u);
-	  $user->bindValue(":password", md5($p));
+	  $user->bindValue(":password", $p);
 		$user->execute();
 		$rez = $user->fetch();
 		if($rez){
