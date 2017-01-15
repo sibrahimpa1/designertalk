@@ -82,5 +82,7 @@ Spirala 3.
 
     - Nisam napravila metodu REST web servisa, i testirala web servis.
 
-
+    u: admin123
+    p: admin123
+    
 Ibrahimpasic Senka, 16511
