@@ -17,7 +17,7 @@
   $result->execute();
 
   foreach ($result as $post){?>
-      <a href='#'><?php echo $post['title']; ?></a>
+      <a onclick='return loadDesignPost(<?php echo $post['id'];?>, true)'><?php echo $post['title']; ?></a>
     <?php }
 
  ?>
